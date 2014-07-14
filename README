@@ -1,36 +1,3 @@
-Your first task is to complete the implementation of the camera_stream module.
+The software implementation can be found in folder SDK.
 
-Once you have done this (with reasonable confidence that it is correct),
-you should generate your bitstream and export your design to the SDK.
-
-From the SDK, you will:
-
-1. Create a new hardware platform specification.
-    File > New > Xilinx Hardware Platform Specification
-    Give the project an appropriate name
-    In Target Hardware Specification, browse to the "hw" directory, and choose "system.xml"
-
-2. Create a new board support package.
-    File > New > Xilinx Board Support Package
-    Give the project an appropriate name
-    Click Finish, then the Board Support Package Settings window appears
-    Check the box for the lwip140 libraries.
-
-3. Create a new Xilinx C project
-    File > New > Xilinx C Project
-    Give the project an appropriate name
-    Use the Peripheral Tests template
-    Click Next
-    Select "Target an existing Board Support Package"
-    using the bsp you created in step 2
-
-
-Your edits will occur in testperiph.c (feel free to rename this file if you want).
-
-An example version of this file (with extra #includes that you will need) is called lab2_main.c.
-
-You can use the terminal in the same way that you did in lab 1 to read input.
-Note that you should now be using the 9600 baud setting, rather than 115200. You can
-reconfigure this in XPS if you want to, but there is no particular reason to.
-Just make sure the settings match, otherwise you won't see any output on the terminal.
-
+The hardware implementation is spreaded over the file system. 
