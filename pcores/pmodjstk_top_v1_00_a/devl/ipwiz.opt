@@ -1,0 +1,9 @@
+-batch 
+-create pmodjstk_top 
+-ver 1.00.a 
+-dir "/afs/ir.stanford.edu/class/ee109/groups/6/jstk" 
+-lang verilog 
+-bus axi4lite s 
+-reg 2 
+-xps 
+-driver 

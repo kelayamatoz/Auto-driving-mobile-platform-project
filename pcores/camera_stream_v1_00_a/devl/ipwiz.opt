@@ -1,0 +1,10 @@
+-batch 
+-create camera_stream 
+-ver 1.00.a 
+-dir /home/sam/atlys-bsb/ 
+-lang verilog 
+-bus axi4stream ms 
+-xps 
+-totalin 8
+-totalout 32
+-driver 

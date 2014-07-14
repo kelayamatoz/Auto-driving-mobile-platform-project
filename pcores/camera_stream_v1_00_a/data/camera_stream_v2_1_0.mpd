@@ -1,0 +1,53 @@
+##############################################################################
+## Filename:          /home/sam/atlys-bsb/pcores/camera_stream_v1_00_a/data/camera_stream_v2_1_0.mpd
+## Description:       Microprocessor Peripheral Description
+## Date:              Wed Apr 25 21:06:10 2012 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+BEGIN camera_stream
+
+## Peripheral Options
+OPTION IPTYPE = PERIPHERAL
+OPTION IMP_NETLIST = TRUE
+OPTION HDL = MIXED
+OPTION STYLE = MIX
+IO_INTERFACE IO_IF = camera
+## Bus Interfaces
+BUS_INTERFACE BUS=M_AXIS, BUS_STD=AXIS, BUS_TYPE=INITIATOR
+BUS_INTERFACE BUS=S_AXIS, BUS_STD=AXIS, BUS_TYPE=TARGET
+
+## Parameters
+PARAMETER C_S_AXIS_PROTOCOL = GENERIC, DT = string, TYPE = NON_HDL, ASSIGNMENT = CONSTANT, BUS = S_AXIS
+PARAMETER C_S_AXIS_TDATA_WIDTH = 32, DT = integer, TYPE = NON_HDL, ASSIGNMENT = CONSTANT, BUS = S_AXIS
+PARAMETER C_M_AXIS_PROTOCOL = GENERIC, DT = string, TYPE = NON_HDL, ASSIGNMENT = CONSTANT, BUS = M_AXIS
+PARAMETER C_M_AXIS_TDATA_WIDTH = 32, DT = integer, TYPE = NON_HDL, ASSIGNMENT = CONSTANT, BUS = M_AXIS
+## Peripheral ports
+PORT ACLK = "", DIR=I, SIGIS=CLK, BUS=M_AXIS:S_AXIS
+PORT ARESETN = "", DIR=I, SIGIS=RST #, BUS=M_AXIS:S_AXIS
+PORT S_AXIS_TREADY = TREADY, DIR=O, BUS=S_AXIS
+PORT S_AXIS_TDATA = TDATA, DIR=I, VEC=[31:0], BUS=S_AXIS
+PORT S_AXIS_TLAST = TLAST, DIR=I, BUS=S_AXIS
+PORT S_AXIS_TVALID = TVALID, DIR=I, BUS=S_AXIS
+PORT M_AXIS_TVALID = TVALID, DIR=O, BUS=M_AXIS
+PORT M_AXIS_TDATA = TDATA, DIR=O, VEC=[31:0], BUS=M_AXIS
+PORT M_AXIS_TLAST = TLAST, DIR=O, BUS=M_AXIS
+PORT M_AXIS_TREADY = TREADY, DIR=I, BUS=M_AXIS
+
+# ADD USER PORTS BELOW THIS LINE 
+# 24MHz differential SPI clock
+PORT RST_I = "", DIR=I, SIGIS=RST, IO_IF=camera
+PORT CLK = "", DIR=I, SIGIS=CLK, IO_IF=camera
+PORT CLK_180 = "", DIR=I, SIGIS=CLK, IO_IF=camera
+PORT SDA = "", DIR=IO, IO_IF=camera
+PORT SCL = "", DIR=IO, IO_IF=camera
+PORT D_I = "", DIR=I, VEC=[7:0], IO_IF=camera
+PORT PCLK_I = "", DIR=I, IO_IF=camera, SIGIS=CLK
+PORT MCLK_O = "", DIR=O, IO_IF=camera, SIGIS=CLK
+PORT LV_I = "", DIR=I, IO_IF=camera
+PORT FV_I = "", DIR=I, IO_IF=camera
+PORT RST_O = "", DIR=O, IO_IF=camera
+PORT PWDN_O = "", DIR=O, IO_IF=camera
+PORT VDDEN_O = "", DIR=O, IO_IF=camera
+PORT DEBUG = "", DIR=O, IO_IF=camera, VEC=[7:0]
+
+END

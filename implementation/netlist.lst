@@ -1,0 +1,27 @@
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/system.ngc 1370149704
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/push_buttons_5bits_wrapper.ngc 1370148855
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/ethernet_lite_wrapper.ngc 1370149626
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/dip_switches_8bits_wrapper.ngc 1370149093
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/camera_stream_0_wrapper.ngc 1370149638
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/rs232_uart_1_wrapper.ngc 1370148844
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/proc_sys_reset_0_wrapper.ngc 1370148384
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/clock_generator_0_wrapper.ngc 1370149603
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/pmodjstk_top_0_wrapper.ngc 1370149580
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/axi_intc_0_wrapper.ngc 1370149275
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/axi_dma_0_wrapper.ngc 1370149643
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_ila_0_wrapper.ngc 1370149655
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/microblaze_0_ilmb_wrapper.ngc 1370149586
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/microblaze_0_dlmb_wrapper.ngc 1370149592
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/mcb_ddr2_wrapper.ngc 1370149621
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/axi4lite_0_wrapper.ngc 1370149609
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/axi4_0_wrapper.ngc 1370149615
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/microblaze_0_wrapper.ngc 1370149597
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/microblaze_0_i_bram_ctrl_wrapper.ngc 1370148402
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/microblaze_0_d_bram_ctrl_wrapper.ngc 1370148420
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/debug_module_wrapper.ngc 1370148534
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/leds_8bits_wrapper.ngc 1370148889
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/axi_vdma_0_wrapper.ngc 1370149632
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/axi_hdmi_0_wrapper.ngc 1370149264
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/microblaze_0_bram_block_wrapper.ngc 1370148429
+/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ngc 1370149649
+OK

@@ -1,0 +1,6 @@
+verilog camera_stream_v1_00_a /afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/verilog/camera_stream.v
+verilog camera_stream_v1_00_a /afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/verilog/camera_fifo.v
+vhdl camera_stream_v1_00_a /afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/digilent/LocalRst.vhd
+vhdl camera_stream_v1_00_a /afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/digilent/TWICtl.vhd
+vhdl camera_stream_v1_00_a /afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/camctl.vhd
+vhdl work ../hdl/camera_stream_0_wrapper.vhd

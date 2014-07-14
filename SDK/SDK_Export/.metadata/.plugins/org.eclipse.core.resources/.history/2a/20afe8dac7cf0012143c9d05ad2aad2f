@@ -1,0 +1,365 @@
+/*
+ *
+ * Xilinx, Inc.
+ * XILINX IS PROVIDING THIS DESIGN, CODE, OR INFORMATION "AS IS" AS A 
+ * COURTESY TO YOU.  BY PROVIDING THIS DESIGN, CODE, OR INFORMATION AS
+ * ONE POSSIBLE   IMPLEMENTATION OF THIS FEATURE, APPLICATION OR 
+ * STANDARD, XILINX IS MAKING NO REPRESENTATION THAT THIS IMPLEMENTATION 
+ * IS FREE FROM ANY CLAIMS OF INFRINGEMENT, AND YOU ARE RESPONSIBLE 
+ * FOR OBTAINING ANY RIGHTS YOU MAY REQUIRE FOR YOUR IMPLEMENTATION
+ * XILINX EXPRESSLY DISCLAIMS ANY WARRANTY WHATSOEVER WITH RESPECT TO 
+ * THE ADEQUACY OF THE IMPLEMENTATION, INCLUDING BUT NOT LIMITED TO 
+ * ANY WARRANTIES OR REPRESENTATIONS THAT THIS IMPLEMENTATION IS FREE 
+ * FROM CLAIMS OF INFRINGEMENT, IMPLIED WARRANTIES OF MERCHANTABILITY 
+ * AND FITNESS FOR A PARTICULAR PURPOSE.
+ */
+
+/*
+ * 
+ *
+ * This file is a generated sample test application.
+ *
+ * This application is intended to test and/or illustrate some 
+ * functionality of your system.  The contents of this file may
+ * vary depending on the IP in your system and may use existing
+ * IP driver functions.  These drivers will be generated in your
+ * SDK application project when you run the "Generate Libraries" menu item.
+ *
+ */
+
+
+#include <stdio.h>
+#include "xparameters.h"
+#include "xil_cache.h"
+#include "xintc.h"
+#include "intc_header.h"
+#include "xbasic_types.h"
+#include "xgpio.h"
+#include "gpio_header.h"
+#include "xemaclite.h"
+#include "xemaclite_example.h"
+#include "emaclite_header.h"
+#include "uartlite_header.h"
+
+
+/************************** Constant Definitions *****************************/
+#define XPAR_PMODJSTK_TOP_0_BASEADDR 0x7B600000
+#define GPIO_CHANNEL 1
+
+
+
+
+/************************** Function Prototypes ******************************/
+int  InitDipSwitches();
+int  InitPushButtons();
+int  InitLeds();
+void ReadDipSwitches();
+void ReadPushButtons();
+void RunJoystickMode();
+void RunCommandMode();
+void RunVisualMode();
+void SendCommand(char command, u8 amount);
+
+
+
+
+
+/************************** Variable Definitions *****************************/
+// DIP Switches
+static XGpio DipSwitchInput;
+static u8 JoystickMode;
+static u8 CommandMode;
+static u8 VisualMode;
+
+// Pushbuttons
+static XGpio PushButtonInput;
+static u8 Continue;
+
+// Onboard LEDs
+static XGpio LedOutput;
+
+// Joystick
+static u16* xPtr = ((u16*) XPAR_PMODJSTK_TOP_0_BASEADDR);
+static u16* yPtr = ((u16*) XPAR_PMODJSTK_TOP_0_BASEADDR) + 2;
+
+
+
+int main() 
+{
+	// Initialize
+	Xil_ICacheEnable();
+	Xil_DCacheEnable();
+//	ConfigureDMA();
+//	InitVideo();
+	InitDipSwitches();
+	InitPushButtons();
+	InitLeds();
+
+	// Run Loop
+   while(1)
+   {
+	   ReadDipSwitches();
+	   if(JoystickMode)
+		   RunJoystickMode();
+	   else if(CommandMode)
+	   	   RunCommandMode();
+	   else if(VisualMode)
+		   RunVisualMode();
+   }
+
+   // Shut Down
+   Xil_DCacheDisable();
+   Xil_ICacheDisable();
+   return 0;
+}
+
+
+
+void RunJoystickMode()
+{
+	int xDir, yDir, lDir, rDir;
+	int xMag, yMag, lMag, rMag;
+	int i;
+  	char response = 0;
+	
+	
+	// clears the input buffer
+	while(response != '*')
+	{
+		xil_printf("%c%c%c%c%c", 'J', 2, 2, 2, 2);
+		response = getchar();
+	}
+	
+	
+	while(JoystickMode)
+	{
+		for (i = 0; i < 3; i++)
+		{
+			xDir = (*xPtr) >> 9;
+			xMag = (*xPtr & 0x01FF) >> 2;
+			if(xDir == 0)
+				xMag = 127 - xMag;
+
+			yDir = (*yPtr) >> 9;
+			yMag = (*yPtr & 0x01FF) >> 2;
+			if(yDir == 0)
+				yMag = 127 - yMag;
+
+			lMag = 0;
+			rMag = 0;
+
+			if(yDir == 1)
+			{
+				lMag += yMag;
+				rMag += yMag;
+			}
+			else
+			{
+				lMag -= yMag;
+				rMag -= yMag;
+			}
+
+			if(xDir == 1)
+			{
+				lMag += xMag;
+				rMag -= xMag;
+			}
+			else
+			{
+				lMag -= xMag;
+				rMag += xMag;
+			}
+
+			if(lMag >= 0)
+			{
+				lDir = 1;
+			}
+			else
+			{
+				lDir = 0;
+				lMag *= -1;
+			}
+
+			if(rMag >= 0)
+			{
+				rDir = 1;
+			}
+			else
+			{
+				rDir = 0;
+				rMag *= -1;
+			}
+			xil_printf("%c%c%c%c%c", 'J', (u8)lDir, (u8)lMag, (u8)rDir, (u8)rMag);
+		}
+      	response = getchar();
+		while(response != 'J' && response != '!')
+		{
+			response = getchar();
+		}
+      	ReadDipSwitches();
+	}
+}
+
+
+
+
+
+
+
+
+
+void RunCommandMode()
+{
+	char response = 0;
+	
+	// clear input buffer
+	while(response != '*')
+	{
+		xil_printf("%c%c%d", 'C', 'c', 0);
+		response = getchar();
+	}
+
+	
+	while(CommandMode)
+	{
+		ReadPushButtons();
+		if(Continue)
+		{
+			// wait for button to pop back up
+			while(Continue) ReadPushButtons();  
+
+			// List of Commands
+			SendCommand('f', 220);
+			SendCommand('w', 100);
+
+			SendCommand('r',  20);
+			SendCommand('w', 100);
+
+			SendCommand('f',  60);
+			SendCommand('w', 100);
+
+			SendCommand('l',  12);
+			SendCommand('w', 100);
+
+			SendCommand('f', 200);
+			SendCommand('w', 100);
+
+			SendCommand('l',  11);
+			SendCommand('w', 100);
+
+			SendCommand('f', 220);
+			SendCommand('w', 100);
+
+			SendCommand('l',  15);
+			SendCommand('w', 100);
+
+			SendCommand('f', 250);
+			SendCommand('w', 100);
+
+			SendCommand('r',   6);
+			SendCommand('w', 100);
+
+			SendCommand('f', 230);
+			SendCommand('w', 100);
+
+			SendCommand('l',  22);
+			SendCommand('w', 100);
+
+		}
+		Continue = 0;
+		ReadDipSwitches();
+	}
+}
+
+
+void SendCommand(char command, u8 amount)
+{
+	char response = 0;
+	
+	xil_printf("%c%c%c", 'C', command, amount);
+	while(response != 'C')
+	{
+		response = getchar();
+		if(response == '!') // car has timed out
+			xil_printf("%c%c%c", 'C', command, amount);
+	}
+	return;
+}
+
+
+
+void RunVisualMode()
+{
+//	xil_printf("Running Visual Mode\r\n");
+
+	while(VisualMode)
+	{
+		ReadPushButtons();
+		if(Continue)
+		{
+			while(Continue) ReadPushButtons();
+			//TODO: Get Out of Standby
+			xil_printf("%c%c%c%c", '!', '!', '!', '!');
+			
+			//TODO: send command, check camera
+			
+			//TODO: Go to Standby
+			xil_printf("%c%c%c%c%c", '$', 'w',   1, 's',   0);
+		}
+		Continue = 0;
+		ReadDipSwitches();
+	}
+}
+
+
+
+
+
+
+int InitDipSwitches()
+{
+	int Status;
+	Status = XGpio_Initialize(&DipSwitchInput, XPAR_DIP_SWITCHES_8BITS_DEVICE_ID);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+	return XST_SUCCESS;
+}
+
+int InitPushButtons()
+{
+	int Status;
+	Status = XGpio_Initialize(&PushButtonInput, XPAR_PUSH_BUTTONS_5BITS_DEVICE_ID);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+	return XST_SUCCESS;
+}
+
+int InitLeds()
+{
+	int Status;
+	Status = XGpio_Initialize(&LedOutput, XPAR_LEDS_8BITS_DEVICE_ID);
+	if (Status != XST_SUCCESS)  {
+	  return XST_FAILURE;
+	}
+	return XST_SUCCESS;
+}
+
+
+void ReadDipSwitches()
+{
+	u32 input = XGpio_DiscreteRead(&DipSwitchInput, GPIO_CHANNEL);
+	JoystickMode = (input & 0x0001);
+	CommandMode  = (input & 0x0002) >> 1;
+	VisualMode   = (input & 0x0004) >> 1; //TODO: Should probably be >> 2
+	
+	// only lights the least significant set bit
+	XGpio_DiscreteWrite(&LedOutput, GPIO_CHANNEL, input & ~(input - 1));
+}
+
+void ReadPushButtons()
+{
+	u32 input = XGpio_DiscreteRead(&PushButtonInput, GPIO_CHANNEL);
+	Continue  = (input & 0x0001);
+}

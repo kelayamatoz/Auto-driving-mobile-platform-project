@@ -1,0 +1,11 @@
+-p
+xc6slx45csg324-3
+-lang
+verilog
+-intstyle
+default
+-lp
+/usr/class/ee109/xilinx_lab_sources/Atlys_BSB_Support_v_3_6/Atlys_AXI_BSB_Support/lib/
+-msg
+__xps/ise/xmsgprops.lst
+system.mhs

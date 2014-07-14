@@ -1,0 +1,14 @@
+##############################################################################
+## Filename:          /home/sam/atlys-bsb/pcores/camera_stream_v1_00_a/data/camera_stream_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Wed Apr 25 21:06:10 2012 (by Create and Import Peripheral Wizard)
+##############################################################################
+lib camera_stream_v1_00_a camera_stream.v verilog
+lib camera_stream_v1_00_a camera_fifo.v verilog
+lib camera_stream_v1_00_a digilent/LocalRst.vhd vhdl
+lib camera_stream_v1_00_a digilent/TWICtl.vhd vhdl
+lib camera_stream_v1_00_a camctl.vhd vhdl
+
+
+
+

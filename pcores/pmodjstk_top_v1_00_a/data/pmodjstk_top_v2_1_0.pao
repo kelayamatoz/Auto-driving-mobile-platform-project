@@ -1,0 +1,16 @@
+##############################################################################
+## Filename:          /afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/pmodjstk_top_v1_00_a/data/pmodjstk_top_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Fri May 24 17:10:07 2013 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib proc_common_v3_00_a all vhdl
+lib axi_lite_ipif_v1_01_a all vhdl
+lib pmodjstk_top_v1_00_a Binary_To_BCD vhdl
+lib pmodjstk_top_v1_00_a ClkDiv_5Hz vhdl
+lib pmodjstk_top_v1_00_a ClkDiv_66_67kHz vhdl
+lib pmodjstk_top_v1_00_a PmodJSTK vhdl
+lib pmodjstk_top_v1_00_a spiMode0 vhdl
+lib pmodjstk_top_v1_00_a spiCtrl vhdl
+lib pmodjstk_top_v1_00_a user_logic verilog
+lib pmodjstk_top_v1_00_a pmodjstk_top vhdl

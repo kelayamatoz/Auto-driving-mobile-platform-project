@@ -1,0 +1,470 @@
+
+# ##############################################################################
+# Created by Base System Builder Wizard for Xilinx EDK 13.4 Build EDK_O.87xd
+# Mon Apr 23 22:14:11 2012
+# Target Board:  digilent atlys Rev C
+# Family:    spartan6
+# Device:    xc6slx45
+# Package:   csg324
+# Speed Grade:  -3
+# ##############################################################################
+ PARAMETER VERSION = 2.1.0
+
+
+ PORT zio = zio, DIR = IO
+ PORT rzq = rzq, DIR = IO
+ PORT mcbx_dram_we_n = mcbx_dram_we_n, DIR = O
+ PORT mcbx_dram_udqs_n = mcbx_dram_udqs_n, DIR = IO
+ PORT mcbx_dram_udqs = mcbx_dram_udqs, DIR = IO
+ PORT mcbx_dram_udm = mcbx_dram_udm, DIR = O
+ PORT mcbx_dram_ras_n = mcbx_dram_ras_n, DIR = O
+ PORT mcbx_dram_odt = mcbx_dram_odt, DIR = O
+ PORT mcbx_dram_ldm = mcbx_dram_ldm, DIR = O
+ PORT mcbx_dram_dqs_n = mcbx_dram_dqs_n, DIR = IO
+ PORT mcbx_dram_dqs = mcbx_dram_dqs, DIR = IO
+ PORT mcbx_dram_dq = mcbx_dram_dq, DIR = IO, VEC = [15:0]
+ PORT mcbx_dram_clk_n = mcbx_dram_clk_n, DIR = O, SIGIS = CLK
+ PORT mcbx_dram_clk = mcbx_dram_clk, DIR = O, SIGIS = CLK
+ PORT mcbx_dram_cke = mcbx_dram_cke, DIR = O
+ PORT mcbx_dram_cas_n = mcbx_dram_cas_n, DIR = O
+ PORT mcbx_dram_ba = mcbx_dram_ba, DIR = O, VEC = [2:0]
+ PORT mcbx_dram_addr = mcbx_dram_addr, DIR = O, VEC = [12:0]
+ PORT RS232_Uart_1_sout = RS232_Uart_1_sout, DIR = O
+ PORT RS232_Uart_1_sin = RS232_Uart_1_sin, DIR = I
+ PORT RESET = RESET, DIR = I, SIGIS = RST, RST_POLARITY = 0
+ PORT Push_Buttons_5Bits_TRI_I = Push_Buttons_5Bits_TRI_I, DIR = I, VEC = [0:4]
+ PORT LEDs_8Bits_TRI_O = LEDs_8Bits_TRI_O, DIR = O, VEC = [7:0]
+ PORT GCLK = GCLK, DIR = I, SIGIS = CLK, CLK_FREQ = 100000000
+ PORT Ethernet_Lite_TX_EN = Ethernet_Lite_TX_EN, DIR = O
+ PORT Ethernet_Lite_TX_CLK = Ethernet_Lite_TX_CLK, DIR = I
+ PORT Ethernet_Lite_TXD = Ethernet_Lite_TXD, DIR = O, VEC = [3:0]
+ PORT Ethernet_Lite_RX_ER = Ethernet_Lite_RX_ER, DIR = I
+ PORT Ethernet_Lite_RX_DV = Ethernet_Lite_RX_DV, DIR = I
+ PORT Ethernet_Lite_RX_CLK = Ethernet_Lite_RX_CLK, DIR = I
+ PORT Ethernet_Lite_RXD = Ethernet_Lite_RXD, DIR = I, VEC = [3:0]
+ PORT Ethernet_Lite_PHY_RST_N = Ethernet_Lite_PHY_RST_N, DIR = O
+ PORT Ethernet_Lite_MDIO = Ethernet_Lite_MDIO, DIR = IO
+ PORT Ethernet_Lite_MDC = Ethernet_Lite_MDC, DIR = O
+ PORT Ethernet_Lite_CRS = Ethernet_Lite_CRS, DIR = I
+ PORT Ethernet_Lite_COL = Ethernet_Lite_COL, DIR = I
+ PORT DIP_Switches_8Bits_TRI_I = DIP_Switches_8Bits_TRI_I, DIR = I, VEC = [7:0]
+ PORT TMDS_TX_CLK_P = axi_hdmi_0_TMDS_TX_CLK_P, DIR = O
+ PORT TMDS_TX_CLK_N = axi_hdmi_0_TMDS_TX_CLK_N, DIR = O
+ PORT TMDS_TX_2_P = axi_hdmi_0_TMDS_TX_2_P, DIR = O
+ PORT TMDS_TX_2_N = axi_hdmi_0_TMDS_TX_2_N, DIR = O
+ PORT TMDS_TX_1_P = axi_hdmi_0_TMDS_TX_1_P, DIR = O
+ PORT TMDS_TX_1_N = axi_hdmi_0_TMDS_TX_1_N, DIR = O
+ PORT TMDS_TX_0_P = axi_hdmi_0_TMDS_TX_0_P, DIR = O
+ PORT TMDS_TX_0_N = axi_hdmi_0_TMDS_TX_0_N, DIR = O
+ PORT axi_hdmi_0_TMDS_RX_SDA_pin = axi_hdmi_0_TMDS_RX_SDA, DIR = IO
+ PORT CAMA_SDA = CAMA_SDA, DIR = IO
+ PORT CAMA_PCLK_I = CAMA_PCLK_I, DIR = I, SIGIS = CLK, CLK_FREQ = 80000000
+ PORT CAMA_D_I = camera_stream_0_D_I, DIR = I, VEC = [7:0]
+ PORT CAMA_SCL = CAMA_SCL, DIR = IO
+ PORT CAMA_FV_I = camera_stream_0_FV_I, DIR = I
+ PORT CAMA_MCLK_O = camera_stream_0_MCLK_O, DIR = O, SIGIS = CLK
+ PORT CAMA_RST_O = camera_stream_0_RST_O, DIR = O, SIGIS = RST, RST_POLARITY = 1
+ PORT CAMA_PWDN_O = camera_stream_0_PWDN_O, DIR = O
+ PORT CAMX_VDDEN_O = camera_stream_0_VDDEN_O, DIR = O
+ PORT CAMA_LV_I = camera_stream_0_LV_I, DIR = I
+ PORT chipscope_ila_0_TRIG0_pin = net_chipscope_ila_0_TRIG0_pin, DIR = I
+ PORT pmodjstk_top_0_MISO_pin = pmodjstk_top_0_MISO, DIR = I
+ PORT pmodjstk_top_0_MOSI_pin = pmodjstk_top_0_MOSI, DIR = O
+ PORT pmodjstk_top_0_SS_pin = pmodjstk_top_0_SS, DIR = O
+ PORT pmodjstk_top_0_SCLK_pin = pmodjstk_top_0_SCLK, DIR = O
+
+
+BEGIN proc_sys_reset
+ PARAMETER INSTANCE = proc_sys_reset_0
+ PARAMETER HW_VER = 3.00.a
+ PARAMETER C_EXT_RESET_HIGH = 0
+ PORT MB_Debug_Sys_Rst = proc_sys_reset_0_MB_Debug_Sys_Rst
+ PORT Dcm_locked = proc_sys_reset_0_Dcm_locked
+ PORT MB_Reset = proc_sys_reset_0_MB_Reset
+ PORT Slowest_sync_clk = clock_generator_0_CLKOUT3
+ PORT Interconnect_aresetn = proc_sys_reset_0_Interconnect_aresetn
+ PORT Ext_Reset_In = RESET
+ PORT BUS_STRUCT_RESET = proc_sys_reset_0_BUS_STRUCT_RESET
+ PORT Peripheral_Reset = proc_sys_reset_0_Peripheral_Reset
+ PORT Peripheral_aresetn = proc_sys_reset_0_Peripheral_aresetn
+END
+
+BEGIN lmb_v10
+ PARAMETER INSTANCE = microblaze_0_ilmb
+ PARAMETER HW_VER = 2.00.b
+ PORT SYS_RST = proc_sys_reset_0_BUS_STRUCT_RESET
+ PORT LMB_CLK = clk_100_0000MHzPLL0
+END
+
+BEGIN lmb_bram_if_cntlr
+ PARAMETER INSTANCE = microblaze_0_i_bram_ctrl
+ PARAMETER HW_VER = 3.00.b
+ PARAMETER C_BASEADDR = 0x00000000
+ PARAMETER C_HIGHADDR = 0x00001fff
+ BUS_INTERFACE SLMB = microblaze_0_ilmb
+ BUS_INTERFACE BRAM_PORT = microblaze_0_i_bram_ctrl_2_microblaze_0_bram_block
+END
+
+BEGIN lmb_v10
+ PARAMETER INSTANCE = microblaze_0_dlmb
+ PARAMETER HW_VER = 2.00.b
+ PORT SYS_RST = proc_sys_reset_0_BUS_STRUCT_RESET
+ PORT LMB_CLK = clk_100_0000MHzPLL0
+END
+
+BEGIN lmb_bram_if_cntlr
+ PARAMETER INSTANCE = microblaze_0_d_bram_ctrl
+ PARAMETER HW_VER = 3.00.b
+ PARAMETER C_BASEADDR = 0x00000000
+ PARAMETER C_HIGHADDR = 0x00001fff
+ BUS_INTERFACE SLMB = microblaze_0_dlmb
+ BUS_INTERFACE BRAM_PORT = microblaze_0_d_bram_ctrl_2_microblaze_0_bram_block
+END
+
+BEGIN bram_block
+ PARAMETER INSTANCE = microblaze_0_bram_block
+ PARAMETER HW_VER = 1.00.a
+ BUS_INTERFACE PORTA = microblaze_0_i_bram_ctrl_2_microblaze_0_bram_block
+ BUS_INTERFACE PORTB = microblaze_0_d_bram_ctrl_2_microblaze_0_bram_block
+END
+
+BEGIN microblaze
+ PARAMETER INSTANCE = microblaze_0
+ PARAMETER HW_VER = 8.20.b
+ PARAMETER C_INTERCONNECT = 2
+ PARAMETER C_USE_BARREL = 1
+ PARAMETER C_USE_FPU = 0
+ PARAMETER C_DEBUG_ENABLED = 1
+ PARAMETER C_ICACHE_BASEADDR = 0xc0000000
+ PARAMETER C_ICACHE_HIGHADDR = 0xc7ffffff
+ PARAMETER C_USE_ICACHE = 1
+ PARAMETER C_CACHE_BYTE_SIZE = 8192
+ PARAMETER C_ICACHE_ALWAYS_USED = 1
+ PARAMETER C_DCACHE_BASEADDR = 0xc0000000
+ PARAMETER C_DCACHE_HIGHADDR = 0xc7ffffff
+ PARAMETER C_USE_DCACHE = 1
+ PARAMETER C_DCACHE_BYTE_SIZE = 8192
+ PARAMETER C_DCACHE_ALWAYS_USED = 1
+ BUS_INTERFACE M_AXI_DP = axi4lite_0
+ BUS_INTERFACE M_AXI_DC = axi4_0
+ BUS_INTERFACE M_AXI_IC = axi4_0
+ BUS_INTERFACE DEBUG = microblaze_0_debug
+ BUS_INTERFACE DLMB = microblaze_0_dlmb
+ BUS_INTERFACE ILMB = microblaze_0_ilmb
+ PORT MB_RESET = proc_sys_reset_0_MB_Reset
+ PORT CLK = clk_100_0000MHzPLL0
+END
+
+BEGIN mdm
+ PARAMETER INSTANCE = debug_module
+ PARAMETER HW_VER = 2.00.b
+ PARAMETER C_INTERCONNECT = 2
+ PARAMETER C_USE_UART = 1
+ PARAMETER C_BASEADDR = 0x41400000
+ PARAMETER C_HIGHADDR = 0x4140ffff
+ BUS_INTERFACE S_AXI = axi4lite_0
+ BUS_INTERFACE MBDEBUG_0 = microblaze_0_debug
+ PORT Debug_SYS_Rst = proc_sys_reset_0_MB_Debug_Sys_Rst
+ PORT S_AXI_ACLK = clk_100_0000MHzPLL0
+END
+
+BEGIN clock_generator
+ PARAMETER INSTANCE = clock_generator_0
+ PARAMETER HW_VER = 4.03.a
+ PARAMETER C_EXT_RESET_HIGH = 0
+ PARAMETER C_CLKIN_FREQ = 100000000
+ PARAMETER C_CLKOUT0_FREQ = 600000000
+ PARAMETER C_CLKOUT0_GROUP = PLL0
+ PARAMETER C_CLKOUT0_BUF = FALSE
+ PARAMETER C_CLKOUT1_FREQ = 600000000
+ PARAMETER C_CLKOUT1_PHASE = 180
+ PARAMETER C_CLKOUT1_GROUP = PLL0
+ PARAMETER C_CLKOUT1_BUF = FALSE
+ PARAMETER C_CLKOUT2_FREQ = 100000000
+ PARAMETER C_CLKOUT2_GROUP = PLL0
+ PARAMETER C_CLKOUT3_FREQ = 24000000
+ PARAMETER C_CLKOUT4_FREQ = 24000000
+ PARAMETER C_CLKOUT4_PHASE = 180
+ PARAMETER C_CLKOUT3_GROUP = PLL1
+ PARAMETER C_CLKOUT4_GROUP = PLL1
+ PORT LOCKED = proc_sys_reset_0_Dcm_locked
+ PORT CLKOUT2 = clk_100_0000MHzPLL0
+ PORT RST = RESET
+ PORT CLKOUT0 = clk_600_0000MHzPLL0_nobuf
+ PORT CLKOUT1 = clk_600_0000MHz180PLL0_nobuf
+ PORT CLKIN = GCLK
+ PORT CLKOUT3 = clock_generator_0_CLKOUT3
+ PORT CLKOUT4 = clock_generator_0_CLKOUT4
+END
+
+BEGIN axi_interconnect
+ PARAMETER INSTANCE = axi4lite_0
+ PARAMETER HW_VER = 1.05.a
+ PARAMETER C_INTERCONNECT_CONNECTIVITY_MODE = 0
+ PORT INTERCONNECT_ARESETN = proc_sys_reset_0_Interconnect_aresetn
+ PORT INTERCONNECT_ACLK = clk_100_0000MHzPLL0
+END
+
+BEGIN axi_interconnect
+ PARAMETER INSTANCE = axi4_0
+ PARAMETER HW_VER = 1.05.a
+ PORT interconnect_aclk = clk_100_0000MHzPLL0
+ PORT INTERCONNECT_ARESETN = proc_sys_reset_0_Interconnect_aresetn
+END
+
+BEGIN axi_uartlite
+ PARAMETER INSTANCE = RS232_Uart_1
+ PARAMETER HW_VER = 1.02.a
+ PARAMETER C_BAUDRATE = 9600
+ PARAMETER C_DATA_BITS = 8
+ PARAMETER C_USE_PARITY = 0
+ PARAMETER C_ODD_PARITY = 1
+ PARAMETER C_BASEADDR = 0x40600000
+ PARAMETER C_HIGHADDR = 0x4060ffff
+ BUS_INTERFACE S_AXI = axi4lite_0
+ PORT S_AXI_ACLK = clk_100_0000MHzPLL0
+ PORT TX = RS232_Uart_1_sout
+ PORT RX = RS232_Uart_1_sin
+END
+
+BEGIN axi_gpio
+ PARAMETER INSTANCE = Push_Buttons_5Bits
+ PARAMETER HW_VER = 1.01.b
+ PARAMETER C_GPIO_WIDTH = 5
+ PARAMETER C_ALL_INPUTS = 1
+ PARAMETER C_INTERRUPT_PRESENT = 0
+ PARAMETER C_IS_DUAL = 0
+ PARAMETER C_BASEADDR = 0x40000000
+ PARAMETER C_HIGHADDR = 0x4000ffff
+ BUS_INTERFACE S_AXI = axi4lite_0
+ PORT S_AXI_ACLK = clk_100_0000MHzPLL0
+ PORT GPIO_IO_I = Push_Buttons_5Bits_TRI_I
+END
+
+BEGIN axi_s6_ddrx
+ PARAMETER INSTANCE = MCB_DDR2
+ PARAMETER HW_VER = 1.05.a
+ PARAMETER C_MCB_RZQ_LOC = L6
+ PARAMETER C_MCB_ZIO_LOC = C2
+ PARAMETER C_MEM_TYPE = DDR2
+ PARAMETER C_MEM_PARTNO = EDE1116AXXX-8E
+ PARAMETER C_MEM_BANKADDR_WIDTH = 3
+ PARAMETER C_MEM_NUM_COL_BITS = 10
+ PARAMETER C_SKIP_IN_TERM_CAL = 0
+ PARAMETER C_S0_AXI_ENABLE = 1
+ PARAMETER C_INTERCONNECT_S0_AXI_MASTERS = microblaze_0.M_AXI_DC & microblaze_0.M_AXI_IC & axi_vdma_0.M_AXI_MM2S & axi_dma_0.M_AXI_S2MM
+ PARAMETER C_MEM_DDR2_RTT = 50OHMS
+ PARAMETER C_S0_AXI_STRICT_COHERENCY = 0
+ PARAMETER C_INTERCONNECT_S0_AXI_AW_REGISTER = 8
+ PARAMETER C_INTERCONNECT_S0_AXI_AR_REGISTER = 8
+ PARAMETER C_INTERCONNECT_S0_AXI_W_REGISTER = 8
+ PARAMETER C_INTERCONNECT_S0_AXI_R_REGISTER = 8
+ PARAMETER C_INTERCONNECT_S0_AXI_B_REGISTER = 8
+ PARAMETER C_S0_AXI_BASEADDR = 0xc0000000
+ PARAMETER C_S0_AXI_HIGHADDR = 0xc7ffffff
+ BUS_INTERFACE S0_AXI = axi4_0
+ PORT zio = zio
+ PORT rzq = rzq
+ PORT s0_axi_aclk = clk_100_0000MHzPLL0
+ PORT ui_clk = clk_100_0000MHzPLL0
+ PORT mcbx_dram_we_n = mcbx_dram_we_n
+ PORT mcbx_dram_udqs_n = mcbx_dram_udqs_n
+ PORT mcbx_dram_udqs = mcbx_dram_udqs
+ PORT mcbx_dram_udm = mcbx_dram_udm
+ PORT mcbx_dram_ras_n = mcbx_dram_ras_n
+ PORT mcbx_dram_odt = mcbx_dram_odt
+ PORT mcbx_dram_ldm = mcbx_dram_ldm
+ PORT mcbx_dram_dqs_n = mcbx_dram_dqs_n
+ PORT mcbx_dram_dqs = mcbx_dram_dqs
+ PORT mcbx_dram_dq = mcbx_dram_dq
+ PORT mcbx_dram_clk_n = mcbx_dram_clk_n
+ PORT mcbx_dram_clk = mcbx_dram_clk
+ PORT mcbx_dram_cke = mcbx_dram_cke
+ PORT mcbx_dram_cas_n = mcbx_dram_cas_n
+ PORT mcbx_dram_ba = mcbx_dram_ba
+ PORT mcbx_dram_addr = mcbx_dram_addr
+ PORT sysclk_2x = clk_600_0000MHzPLL0_nobuf
+ PORT sysclk_2x_180 = clk_600_0000MHz180PLL0_nobuf
+ PORT SYS_RST = proc_sys_reset_0_BUS_STRUCT_RESET
+ PORT PLL_LOCK = proc_sys_reset_0_Dcm_locked
+END
+
+BEGIN axi_gpio
+ PARAMETER INSTANCE = LEDs_8Bits
+ PARAMETER HW_VER = 1.01.b
+ PARAMETER C_GPIO_WIDTH = 8
+ PARAMETER C_ALL_INPUTS = 0
+ PARAMETER C_INTERRUPT_PRESENT = 0
+ PARAMETER C_IS_DUAL = 0
+ PARAMETER C_BASEADDR = 0x40020000
+ PARAMETER C_HIGHADDR = 0x4002ffff
+ BUS_INTERFACE S_AXI = axi4lite_0
+ PORT S_AXI_ACLK = clk_100_0000MHzPLL0
+ PORT GPIO_IO_O = LEDs_8Bits_TRI_O
+END
+
+BEGIN axi_ethernetlite
+ PARAMETER INSTANCE = Ethernet_Lite
+ PARAMETER HW_VER = 1.01.b
+ PARAMETER C_BASEADDR = 0x40e00000
+ PARAMETER C_HIGHADDR = 0x40e0ffff
+ BUS_INTERFACE S_AXI = axi4lite_0
+ PORT S_AXI_ACLK = clk_100_0000MHzPLL0
+ PORT PHY_tx_en = Ethernet_Lite_TX_EN
+ PORT PHY_tx_clk = Ethernet_Lite_TX_CLK
+ PORT PHY_tx_data = Ethernet_Lite_TXD
+ PORT PHY_rx_er = Ethernet_Lite_RX_ER
+ PORT PHY_dv = Ethernet_Lite_RX_DV
+ PORT PHY_rx_clk = Ethernet_Lite_RX_CLK
+ PORT PHY_rx_data = Ethernet_Lite_RXD
+ PORT PHY_rst_n = Ethernet_Lite_PHY_RST_N
+ PORT PHY_MDIO = Ethernet_Lite_MDIO
+ PORT PHY_MDC = Ethernet_Lite_MDC
+ PORT PHY_crs = Ethernet_Lite_CRS
+ PORT PHY_col = Ethernet_Lite_COL
+ PORT IP2INTC_Irpt = Ethernet_Lite_IP2INTC_Irpt
+END
+
+BEGIN axi_gpio
+ PARAMETER INSTANCE = DIP_Switches_8Bits
+ PARAMETER HW_VER = 1.01.b
+ PARAMETER C_GPIO_WIDTH = 8
+ PARAMETER C_ALL_INPUTS = 1
+ PARAMETER C_INTERRUPT_PRESENT = 0
+ PARAMETER C_IS_DUAL = 0
+ PARAMETER C_BASEADDR = 0x40040000
+ PARAMETER C_HIGHADDR = 0x4004ffff
+ BUS_INTERFACE S_AXI = axi4lite_0
+ PORT S_AXI_ACLK = clk_100_0000MHzPLL0
+ PORT GPIO_IO_I = DIP_Switches_8Bits_TRI_I
+END
+
+BEGIN axi_vdma
+ PARAMETER INSTANCE = axi_vdma_0
+ PARAMETER HW_VER = 5.00.a
+ PARAMETER C_INCLUDE_S2MM = 0
+ PARAMETER C_MM2S_LINEBUFFER_DEPTH = 1024
+ PARAMETER C_MM2S_LINEBUFFER_THRESH = 512
+ PARAMETER C_DLYTMR_RESOLUTION = 128
+ PARAMETER C_PRMRY_IS_ACLK_ASYNC = 1
+ PARAMETER C_BASEADDR = 0x43000000
+ PARAMETER C_HIGHADDR = 0x43ffffff
+ BUS_INTERFACE S_AXI_LITE = axi4lite_0
+ BUS_INTERFACE M_AXI_MM2S = axi4_0
+ BUS_INTERFACE M_AXIS_MM2S = axi_vdma_0_M_AXIS_MM2S
+ PORT s_axi_lite_aclk = clk_100_0000MHzPLL0
+ PORT m_axi_mm2s_aclk = clk_100_0000MHzPLL0
+ PORT mm2s_fsync_out = axi_vdma_0_mm2s_fsync_out
+ PORT mm2s_buffer_almost_empty = axi_vdma_0_mm2s_buffer_almost_empty
+ PORT s2mm_fsync_out = axi_vdma_0_s2mm_fsync_out
+ PORT m_axis_mm2s_aclk = axi_vdma_0_M_AXIS_MM2S_ACLK
+END
+
+BEGIN axi_hdmi
+ PARAMETER INSTANCE = axi_hdmi_0
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_USE_HDMI_RECEIVER = 0
+ PARAMETER C_BASEADDR = 0x42000000
+ PARAMETER C_HIGHADDR = 0x42ffffff
+ BUS_INTERFACE S_AXI = axi4lite_0
+ BUS_INTERFACE S_AXIS_MM2S = axi_vdma_0_M_AXIS_MM2S
+ PORT S_AXI_ACLK = clk_100_0000MHzPLL0
+ PORT TMDS_RX_CLK_P = net_gnd
+ PORT TMDS_RX_CLK_N = net_gnd
+ PORT TMDS_RX_2_P = net_gnd
+ PORT TMDS_RX_2_N = net_gnd
+ PORT TMDS_RX_1_P = net_gnd
+ PORT TMDS_RX_1_N = net_gnd
+ PORT TMDS_RX_0_P = net_gnd
+ PORT TMDS_RX_0_N = net_gnd
+ PORT TMDS_RX_SCL = net_gnd
+ PORT TMDS_RX_SDA = axi_hdmi_0_TMDS_RX_SDA
+ PORT TMDS_TX_CLK_P = axi_hdmi_0_TMDS_TX_CLK_P
+ PORT TMDS_TX_CLK_N = axi_hdmi_0_TMDS_TX_CLK_N
+ PORT TMDS_TX_2_P = axi_hdmi_0_TMDS_TX_2_P
+ PORT TMDS_TX_2_N = axi_hdmi_0_TMDS_TX_2_N
+ PORT TMDS_TX_1_P = axi_hdmi_0_TMDS_TX_1_P
+ PORT TMDS_TX_1_N = axi_hdmi_0_TMDS_TX_1_N
+ PORT TMDS_TX_0_P = axi_hdmi_0_TMDS_TX_0_P
+ PORT TMDS_TX_0_N = axi_hdmi_0_TMDS_TX_0_N
+ PORT MM2S_FSYNC_IN = axi_vdma_0_mm2s_fsync_out
+ PORT MM2S_BUFFER_ALMOST_EMPTY = axi_vdma_0_mm2s_buffer_almost_empty
+ PORT S2MM_FSYNC_IN = axi_vdma_0_s2mm_fsync_out
+ PORT ACLK = clk_100_0000MHzPLL0
+END
+
+BEGIN axi_intc
+ PARAMETER INSTANCE = axi_intc_0
+ PARAMETER HW_VER = 1.01.a
+ PARAMETER C_BASEADDR = 0x41500000
+ PARAMETER C_HIGHADDR = 0x415fffff
+ BUS_INTERFACE S_AXI = axi4lite_0
+ PORT S_AXI_ACLK = clk_100_0000MHzPLL0
+ PORT Intr = Ethernet_Lite_IP2INTC_Irpt
+END
+
+BEGIN camera_stream
+ PARAMETER INSTANCE = camera_stream_0
+ PARAMETER HW_VER = 1.00.a
+ BUS_INTERFACE M_AXIS = camera_stream_0_M_AXIS
+ PORT ACLK = clk_100_0000MHzPLL0
+ PORT RST_I = proc_sys_reset_0_Peripheral_Reset
+ PORT CLK = clock_generator_0_CLKOUT3
+ PORT CLK_180 = clock_generator_0_CLKOUT4
+ PORT SDA = CAMA_SDA
+ PORT PCLK_I = CAMA_PCLK_I
+ PORT D_I = camera_stream_0_D_I
+ PORT SCL = CAMA_SCL
+ PORT FV_I = camera_stream_0_FV_I
+ PORT MCLK_O = camera_stream_0_MCLK_O
+ PORT RST_O = camera_stream_0_RST_O
+ PORT PWDN_O = camera_stream_0_PWDN_O
+ PORT VDDEN_O = camera_stream_0_VDDEN_O
+ PORT LV_I = camera_stream_0_LV_I
+ PORT ARESETN = proc_sys_reset_0_Peripheral_aresetn
+ PORT DEBUG = camera_stream_0_DEBUG
+END
+
+BEGIN axi_dma
+ PARAMETER INSTANCE = axi_dma_0
+ PARAMETER HW_VER = 5.00.a
+ PARAMETER C_INCLUDE_MM2S = 0
+ PARAMETER C_INCLUDE_S2MM_SF = 0
+ PARAMETER C_INCLUDE_SG = 0
+ PARAMETER C_BASEADDR = 0x41e00000
+ PARAMETER C_HIGHADDR = 0x41e0ffff
+ BUS_INTERFACE S_AXI_LITE = axi4lite_0
+ BUS_INTERFACE M_AXI_S2MM = axi4_0
+ BUS_INTERFACE S_AXIS_S2MM = camera_stream_0_M_AXIS
+ PORT s_axi_lite_aclk = clk_100_0000MHzPLL0
+ PORT m_axi_s2mm_aclk = clk_100_0000MHzPLL0
+END
+
+BEGIN chipscope_icon
+ PARAMETER INSTANCE = chipscope_icon_0
+ PARAMETER HW_VER = 1.06.a
+ PORT control0 = chipscope_icon_0_control0
+END
+
+BEGIN chipscope_ila
+ PARAMETER INSTANCE = chipscope_ila_0
+ PARAMETER HW_VER = 1.05.a
+ PARAMETER C_TRIG0_TRIGGER_IN_WIDTH = 8
+ PORT CHIPSCOPE_ILA_CONTROL = chipscope_icon_0_control0
+ PORT CLK = clk_100_0000MHzPLL0
+ PORT TRIG0 = camera_stream_0_DEBUG
+END
+
+BEGIN pmodjstk_top
+ PARAMETER INSTANCE = pmodjstk_top_0
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_BASEADDR = 0x7b600000
+ PARAMETER C_HIGHADDR = 0x7b60ffff
+ BUS_INTERFACE S_AXI = axi4lite_0
+ PORT S_AXI_ACLK = clk_100_0000MHzPLL0
+ PORT MISO = pmodjstk_top_0_MISO
+ PORT MOSI = pmodjstk_top_0_MOSI
+ PORT SS = pmodjstk_top_0_SS
+ PORT SCLK = pmodjstk_top_0_SCLK
+END
+

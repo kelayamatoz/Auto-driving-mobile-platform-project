@@ -1,0 +1,2 @@
+VERILOG microblaze_0_bram_block_elaborate_v1_00_a /afs/ir.stanford.edu/class/ee109/groups/6/jstk/hdl/elaborate/microblaze_0_bram_block_elaborate_v1_00_a/hdl/verilog/microblaze_0_bram_block_elaborate.v
+verilog work ../hdl/microblaze_0_bram_block_wrapper.v

@@ -1,0 +1,69 @@
+
+Checking platform configuration ...
+IPNAME: lmb_v10, INSTANCE: microblaze_0_ilmb - 1 master(s) : 1 slave(s) 
+IPNAME: lmb_v10, INSTANCE: microblaze_0_dlmb - 1 master(s) : 1 slave(s) 
+IPNAME: axi_interconnect, INSTANCE: axi4lite_0 - 1 master(s) : 11 slave(s) 
+IPNAME: axi_interconnect, INSTANCE: axi4_0 - 4 master(s) : 1 slave(s) 
+
+Checking port drivers...
+WARNING:EDK:4180 - PORT: s_axis_s2mm_tkeep, CONNECTOR:
+   camera_stream_0_M_AXIS_TKEEP - No driver found. Port will be driven to VCC -
+   /opt/Xilinx/13.4/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_dma_v5_00_a/da
+   ta/axi_dma_v2_1_0.mpd line 240 
+WARNING:EDK:4181 - PORT: chipscope_ila_0_TRIG0_pin, CONNECTOR:
+   net_chipscope_ila_0_TRIG0_pin - floating connection -
+   /afs/ir.stanford.edu/class/ee109/groups/6/jstk/system.mhs line 70 
+WARNING:EDK:4181 - PORT: mm2s_prmry_reset_out_n, CONNECTOR: MM2S_RESET_OUT_N -
+   floating connection -
+   /opt/Xilinx/13.4/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_vdma_v5_00_a/d
+   ata/axi_vdma_v2_1_0.mpd line 201 
+WARNING:EDK:4181 - PORT: m_axis_mm2s_tuser, CONNECTOR:
+   axi_vdma_0_M_AXIS_MM2S_TUSER - floating connection -
+   /opt/Xilinx/13.4/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_vdma_v5_00_a/d
+   ata/axi_vdma_v2_1_0.mpd line 207 
+WARNING:EDK:4181 - PORT: s2mm_prmry_reset_out_n, CONNECTOR: S2MM_RESET_OUT_N -
+   floating connection -
+   /opt/Xilinx/13.4/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_vdma_v5_00_a/d
+   ata/axi_vdma_v2_1_0.mpd line 224 
+WARNING:EDK:4181 - PORT: mm2s_prmry_reset_out_n, CONNECTOR: RESET_OUT_N -
+   floating connection -
+   /opt/Xilinx/13.4/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_dma_v5_00_a/da
+   ta/axi_dma_v2_1_0.mpd line 210 
+WARNING:EDK:4181 - PORT: mm2s_cntrl_reset_out_n, CONNECTOR: RESET_OUT_N -
+   floating connection -
+   /opt/Xilinx/13.4/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_dma_v5_00_a/da
+   ta/axi_dma_v2_1_0.mpd line 216 
+WARNING:EDK:4181 - PORT: s2mm_prmry_reset_out_n, CONNECTOR: RESET_OUT_N -
+   floating connection -
+   /opt/Xilinx/13.4/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_dma_v5_00_a/da
+   ta/axi_dma_v2_1_0.mpd line 238 
+WARNING:EDK:4181 - PORT: s2mm_sts_reset_out_n, CONNECTOR: RESET_OUT_N - floating
+   connection -
+   /opt/Xilinx/13.4/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/axi_dma_v5_00_a/da
+   ta/axi_dma_v2_1_0.mpd line 244 
+
+Performing Clock DRCs...
+
+Performing Reset DRCs...
+
+Overriding system level properties...
+
+INFO: Setting C_RANGE_CHECK = ON for axi_interconnect axi4lite_0.
+
+INFO: Setting C_RANGE_CHECK = OFF for axi_interconnect axi4_0; no DECERR
+checking will be performed.
+
+Running system level update procedures...
+
+Running UPDATE Tcl procedures for OPTION SYSLEVEL_UPDATE_PROC...
+Invoking MIG ...
+MIG returned 0
+
+Running system level DRCs...
+
+Performing System level DRCs on properties...
+
+Running DRC Tcl procedures for OPTION SYSLEVEL_DRC_PROC...
+Port present in Ethernet_Lite
+Chipscope Integrate Controller, instance 'chipscope_icon', exists in System 
+Conversion to XML complete.

@@ -1,0 +1,7 @@
+INFILE=/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/system.ncd
+OUTFILE=/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/system.bit
+FAMILY=Spartan6
+PART=xc6slx45-3csg324
+WORKINGDIR=/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation
+LICENSE=ISE
+USER_INFO=174110923_174110924_174416168_761

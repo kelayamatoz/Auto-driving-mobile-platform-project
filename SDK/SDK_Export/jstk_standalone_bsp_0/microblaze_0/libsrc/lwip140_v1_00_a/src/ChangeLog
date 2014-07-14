@@ -1,0 +1,66 @@
+Change Log for lwip
+=================================
+2011-11-18
+	* Upgraded the to lwip140. Because of it there are lots of changes
+	throughout the lwip files.
+	* There was an existing bug because of which txperf used to hang
+	after a few minutes. It is fixed in src/lwip-1.4.0/src/core/tcp_out.c.
+	After entering into the function tcp_output, we disable interrupts
+	and just before existing the function, we enable back the interrupts.
+	This is done for microblaze and ppc platforms.
+	* For lwip140 the semaphore, mutex, mailbox and pthread interfaces
+	have changed. Corresponding changes are done in file sys_arch.c.
+	* The functions SYS_ARCH_PROTECT and SYS_ARCH_UNPROTECT are now
+	made as macros for better performance.
+	* The file src/include/lwip/def.h is changed so that for endian
+	swapping only macros are used instead of functions. This is done
+	to have better performance.
+	* Support for Zynq is added.
+2011-08-29
+	* src/makefile: Made changes not to echo files being compiled.
+	* src/contrib/ports/xilinx/include/netif/xaxiemacif.h: Added function
+	prototypes for PHY configuration.
+	* src/contrib/ports/xilinx/include/netif/xlltemacif.h: Added function
+	prototypes for PHY configuration.
+	* src/contrib/ports/xilinx/netif/xadapter.c: Made changes in function
+	xemacif_input to remove compilation warnings. The exact change is,
+	replacing "return;" statements with "return 0;".
+	* src/contrib/ports/xilinx/netif/xaxiemacif_dma.c: Removed the unused
+	variable "csum_in_packet" in the function "is_checksum_valid".
+	* src/contrib/ports/xilinx/netif/xaxiemacif_hw.c: Removed unused variables
+	"rdy" and "lock_message_printed" in function "init_axiemac".
+	The PHY configuration related code is removed from the function
+	"init_axiemac", since it is now being done in a separate function.
+	* src/contrib/ports/xilinx/netif/xaxiemacif_physpeed.c: The unused function
+	"get_marvel_phy_speed" is removed.
+	The function "get_IEEE_phy_speed" is changed to correctly advertise speeds
+	and restart autonegotiation.
+	A new function "configure_IEEE_phy_speed" is added to configure PHY speeds
+	when autonegotiation is not done.
+	A new function "Phy_Setup" is added to configure the PHY.
+	Hash defines for PHY registers and PHY bit settings are added.
+	* src/contrib/ports/xilinx/netif/xemacliteif: The function
+	"low_level_init" is changed to start PHY autonegotiation when required
+	and to set correct PHY speeds when autonegotiation is not being used.
+	A new function "detect_phy_emaclite" is added to detect the PHY address
+	connected.
+	A new function "get_IEEE_phy_speed_emaclite" is added to correctly
+	advertise relevant PHY speeds (1000 Mbps not advertised) and to restart
+	PHY autonegotiation. This function returns the autonegotiated PHY speed.
+	A new function "configure_IEEE_phy_speed_emaclite" is added to
+	configure the proper PHY speed when PHY autonegotiation is not
+	happenning.
+	Hash defines for PHY registers and PHY bit settings are added.
+	* src/contrib/ports/xilinx/netif/xlltemacif_hw.c:The PHY configuration
+	related code is removed from the function "init_lltemac", since it is now
+	being done in a separate function.
+	* src/contrib/ports/xilinx/netif/xlltemacif_physpeed.c:The unused function
+	"get_marvel_phy_speed" is removed.
+	The function "get_IEEE_phy_speed" is changed to correctly advertise speeds
+	and restart autonegotiation.
+	A new function "configure_IEEE_phy_speed" is added to configure PHY speeds
+	when autonegotiation is not done.
+	A new function "Phy_Setup" is added to configure the PHY.
+	Hash defines for PHY registers and PHY bit settings are added.
+
+

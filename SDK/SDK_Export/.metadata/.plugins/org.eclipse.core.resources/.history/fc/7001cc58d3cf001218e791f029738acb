@@ -1,0 +1,681 @@
+/*
+ *
+ * Xilinx, Inc.
+ * XILINX IS PROVIDING THIS DESIGN, CODE, OR INFORMATION "AS IS" AS A 
+ * COURTESY TO YOU.  BY PROVIDING THIS DESIGN, CODE, OR INFORMATION AS
+ * ONE POSSIBLE   IMPLEMENTATION OF THIS FEATURE, APPLICATION OR 
+ * STANDARD, XILINX IS MAKING NO REPRESENTATION THAT THIS IMPLEMENTATION 
+ * IS FREE FROM ANY CLAIMS OF INFRINGEMENT, AND YOU ARE RESPONSIBLE 
+ * FOR OBTAINING ANY RIGHTS YOU MAY REQUIRE FOR YOUR IMPLEMENTATION
+ * XILINX EXPRESSLY DISCLAIMS ANY WARRANTY WHATSOEVER WITH RESPECT TO 
+ * THE ADEQUACY OF THE IMPLEMENTATION, INCLUDING BUT NOT LIMITED TO 
+ * ANY WARRANTIES OR REPRESENTATIONS THAT THIS IMPLEMENTATION IS FREE 
+ * FROM CLAIMS OF INFRINGEMENT, IMPLIED WARRANTIES OF MERCHANTABILITY 
+ * AND FITNESS FOR A PARTICULAR PURPOSE.
+ */
+
+/*
+ * 
+ *
+ * This file is a generated sample test application.
+ *
+ * This application is intended to test and/or illustrate some 
+ * functionality of your system.  The contents of this file may
+ * vary depending on the IP in your system and may use existing
+ * IP driver functions.  These drivers will be generated in your
+ * SDK application project when you run the "Generate Libraries" menu item.
+ *
+ */
+
+
+#include <stdio.h>
+#include "xparameters.h"
+#include "xil_cache.h"
+#include "xintc.h"
+#include "intc_header.h"
+#include "xbasic_types.h"
+#include "xgpio.h"
+#include "gpio_header.h"
+#include "xemaclite.h"
+#include "xemaclite_example.h"
+#include "emaclite_header.h"
+#include "uartlite_header.h"
+#include "xaxivdma.h"
+#include "xaxidma.h"
+
+
+
+/************************** Constant Definitions *****************************/
+#define XPAR_PMODJSTK_TOP_0_BASEADDR 0x7B600000
+#define GPIO_CHANNEL 1
+#define GPIO_CHANNEL 1
+// Base Pink Color
+#define BASE_R1   206
+#define BASE_G1    80
+#define BASE_B1   110
+
+// Base Orange Color
+#define BASE_R2   210
+#define BASE_G2   101
+#define BASE_B2    71
+
+
+
+
+/************************** Function Prototypes ******************************/
+void ConfigureDMA();
+void InitVideo();
+
+int  InitDipSwitches();
+int  InitPushButtons();
+int  InitLeds();
+void ReadDipSwitches();
+void ReadPushButtons();
+void RunJoystickMode();
+void RunCommandMode();
+void RunVisualMode();
+void SendCommand(char command, u8 amount);
+void FilterCamera();
+void DisplayCameraData(u16* dataPtr);
+
+
+
+
+
+
+/************************** Variable Definitions *****************************/
+//DMA
+static XAxiDma_Config *dmaconf;
+static XAxiDma dma;
+
+// Framebuffer for video
+static XAxiVdma vdma;
+static XAxiVdma_DmaSetup dmasetup;
+static u32 frames[640*480*3];
+static u16 camera[640*480];
+
+// Framebuffer pointer
+unsigned char *fptr;
+
+// Pink Filter
+int r_t1 = BASE_R1;
+int g_t1 = BASE_G1;
+int b_t1 = BASE_B1;
+int x_t1 =   320;
+int y_t1 =   240;
+int radius1 = 640*640;
+int avgSpaceDist1 = 640*640;
+int chromDistLimit1 = 2000;
+int confidence1 = 10000;
+
+// Orange Filter
+int r_t2 = BASE_R2;
+int g_t2 = BASE_G2;
+int b_t2 = BASE_B2;
+int x_t2 =   320;
+int y_t2 =   240;
+int radius2 = 640*640;
+int avgSpaceDist2 = 640*640;
+int chromDistLimit2 = 2000;
+int confidence2 = 10000;
+
+// DIP Switches
+static XGpio DipSwitchInput;
+static u8 JoystickMode;
+static u8 CommandMode;
+static u8 VisualMode;
+static u8 Displaying;
+static u8 FilterLevel1;
+
+// Pushbuttons
+static XGpio PushButtonInput;
+static u8 Continue;
+
+// Onboard LEDs
+static XGpio LedOutput;
+
+// Joystick
+static u16* xPtr = ((u16*) XPAR_PMODJSTK_TOP_0_BASEADDR);
+static u16* yPtr = ((u16*) XPAR_PMODJSTK_TOP_0_BASEADDR) + 2;
+
+
+
+int main() 
+{
+	// Initialize
+	Xil_ICacheEnable();
+	Xil_DCacheEnable();
+	ConfigureDMA();
+	InitVideo();
+	InitDipSwitches();
+	InitPushButtons();
+	InitLeds();
+
+	// Run Loop
+   while(1)
+   {
+	   ReadDipSwitches();
+	   if(JoystickMode)
+		   RunJoystickMode();
+	   else if(CommandMode)
+	   	   RunCommandMode();
+	   else if(VisualMode)
+		   RunVisualMode();
+   }
+
+   // Shut Down
+   Xil_DCacheDisable();
+   Xil_ICacheDisable();
+   return 0;
+}
+
+
+
+void RunJoystickMode()
+{
+	int xDir, yDir, lDir, rDir;
+	int xMag, yMag, lMag, rMag;
+	int i;
+  	char response = 0;
+	
+	
+	// clears the input buffer
+	while(response != '*')
+	{
+		xil_printf("%c%c%c%c%c", 'J', 2, 2, 2, 2);
+		response = getchar();
+	}
+	
+	
+	while(JoystickMode)
+	{
+		for (i = 0; i < 3; i++)
+		{
+			xDir = (*xPtr) >> 9;
+			xMag = (*xPtr & 0x01FF) >> 2;
+			if(xDir == 0)
+				xMag = 127 - xMag;
+
+			yDir = (*yPtr) >> 9;
+			yMag = (*yPtr & 0x01FF) >> 2;
+			if(yDir == 0)
+				yMag = 127 - yMag;
+
+			lMag = 0;
+			rMag = 0;
+
+			if(yDir == 1)
+			{
+				lMag += yMag;
+				rMag += yMag;
+			}
+			else
+			{
+				lMag -= yMag;
+				rMag -= yMag;
+			}
+
+			if(xDir == 1)
+			{
+				lMag += xMag;
+				rMag -= xMag;
+			}
+			else
+			{
+				lMag -= xMag;
+				rMag += xMag;
+			}
+
+			if(lMag >= 0)
+			{
+				lDir = 1;
+			}
+			else
+			{
+				lDir = 0;
+				lMag *= -1;
+			}
+
+			if(rMag >= 0)
+			{
+				rDir = 1;
+			}
+			else
+			{
+				rDir = 0;
+				rMag *= -1;
+			}
+			xil_printf("%c%c%c%c%c", 'J', (u8)lDir, (u8)lMag, (u8)rDir, (u8)rMag);
+		}
+      	response = getchar();
+		while(response != 'J' && response != '!')
+		{
+			response = getchar();
+		}
+      	ReadDipSwitches();
+	}
+}
+
+
+
+
+
+
+
+
+
+void RunCommandMode()
+{
+	char response = 0;
+	
+	// clear input buffer
+	while(response != '*')
+	{
+		xil_printf("%c%c%d", 'C', 'c', 0);
+		response = getchar();
+	}
+
+	
+	while(CommandMode)
+	{
+		ReadPushButtons();
+		if(Continue)
+		{
+			// wait for button to pop back up
+			while(Continue) ReadPushButtons();  
+
+			// List of Commands
+			SendCommand('f', 200);
+			SendCommand('w', 100);
+
+			SendCommand('r',  14);
+			SendCommand('w', 100);
+
+			SendCommand('f',  50);
+			SendCommand('w', 100);
+
+			SendCommand('l',  13);
+			SendCommand('w', 100);
+
+			SendCommand('f', 155);
+			SendCommand('w', 100);
+
+			SendCommand('l',  11);
+			SendCommand('w', 100);
+
+			SendCommand('f', 210);
+			SendCommand('w', 100);
+
+			SendCommand('l',  15);
+			SendCommand('w', 100);
+
+			SendCommand('f', 250);
+			SendCommand('w', 100);
+
+			SendCommand('r',   4);
+			SendCommand('w', 100);
+
+			SendCommand('f', 210);
+			SendCommand('w', 100);
+
+			SendCommand('l',  23);
+			SendCommand('w', 100);
+
+		}
+		Continue = 0;
+		ReadDipSwitches();
+	}
+}
+
+
+void SendCommand(char command, u8 amount)
+{
+	char response = 0;
+	
+	xil_printf("%c%c%c", 'C', command, amount);
+	while(response != 'C')
+	{
+		response = getchar();
+		if(response == '!') // car has timed out
+			xil_printf("%c%c%c", 'C', command, amount);
+	}
+	return;
+}
+
+
+
+void RunVisualMode()
+{
+	while(VisualMode)
+	{
+//		ReadPushButtons();
+//		if(Continue)
+//		{
+//			while(Continue) ReadPushButtons();
+//			//TODO: Get Out of Standby
+//			xil_printf("%c%c%c%c", '!', '!', '!', '!');
+//
+//			//TODO: send command, check camera
+//
+//			//TODO: Go to Standby
+//			xil_printf("%c%c%c%c%c", '$', 'w',   1, 's',   0);
+//		}
+//		Continue = 0;
+//		ReadDipSwitches();
+		FilterCamera();
+
+	}
+}
+
+
+void FilterCamera()
+{
+	u16* cptr;
+	int i;
+	ReadDipSwitches();
+
+	while(VisualMode)
+	{
+		// Read camera data
+		int offset = 0;
+		for (i = 0; i < 150; i++) {
+			cptr = ((unsigned char*)&camera) + offset;
+			XAxiDma_SimpleTransfer(&dma, cptr, 4096, XAXIDMA_DEVICE_TO_DMA);
+			while (XAxiDma_Busy(&dma,XAXIDMA_DEVICE_TO_DMA));
+			offset += 4096;
+			if (offset >= sizeof(camera))
+				offset = 0;
+		}
+		DisplayCameraData(&camera);
+	}
+}
+
+void DisplayCameraData(u16* dataPtr)
+{
+	int x, y;
+	int r, g, b;
+	int rg, rb, gb;
+
+	// pink filter variables
+	int rg_t1 = r_t1 - g_t1;
+	int rb_t1 = r_t1 - b_t1;
+	int gb_t1 = g_t1 - b_t1;
+	int rg_diff1, rb_diff1, gb_diff1;
+	int rSum1 = 0;
+	int gSum1 = 0;
+	int bSum1 = 0;
+	int count1 = 0;
+	int chromPass1;
+	int chromDist1;
+	int maxChromDist1 = 0;
+	int xSum1 = 0;
+	int ySum1 = 0;
+	int x_diff1, y_diff1;
+	int spaceDist1;
+	int spaceDistSum1 = 0;
+	int spacePass1;
+	int newAvgSpaceDist1;
+	radius1 = (avgSpaceDist1 << 1)+(avgSpaceDist1);
+
+	// orange filter variables
+	int rg_t2 = r_t2 - g_t2;
+	int rb_t2 = r_t2 - b_t2;
+	int gb_t2 = g_t2 - b_t2;
+	int rg_diff2, rb_diff2, gb_diff2;
+	int rSum2 = 0;
+	int gSum2 = 0;
+	int bSum2 = 0;
+	int count2 = 0;
+	int chromPass2;
+	int chromDist2;
+	int maxChromDist2 = 0;
+	int xSum2 = 0;
+	int ySum2 = 0;
+	int x_diff2, y_diff2;
+	int spaceDist2;
+	int spaceDistSum2 = 0;
+	int spacePass2;
+	int newAvgSpaceDist2;
+	radius2 = (avgSpaceDist2 << 1)+(avgSpaceDist2);
+
+
+	int offset;
+	int i, j;
+	int startPixel;
+	for (i = 0; i < 150; i++)
+	{
+		startPixel = ((unsigned int)dataPtr[1] << 16) + dataPtr[0];
+		x = startPixel % 640;
+		y = startPixel / 640;
+
+
+		for (j = 2; j < 2048; j++)
+		{
+			r = (dataPtr[j] >> 8) & 0xf8; // red
+			g = (dataPtr[j] >> 3) & 0xfc; // green
+			b = (dataPtr[j] << 3) & 0xf8; // blue
+
+
+			// pink filter
+			chromPass1 = (r > (b+(b >> 1)) && b > g);
+			if(chromPass1)
+			{
+				rg = r-g;
+				rb = r-b;
+				gb = g-b;
+				rg_diff1 = rg_t1 - rg;
+				rb_diff1 = rb_t1 - rb;
+				gb_diff1 = gb_t1 - gb;
+				chromDist1 = rg_diff1*rg_diff1 + rb_diff1*rb_diff1 + gb_diff1*gb_diff1;
+				chromPass1 = (chromDist1 < chromDistLimit1);
+			}
+
+
+			spacePass1 = 0;
+			x_diff1 = x_t1 - x;
+			y_diff1 = y_t1 - y;
+
+			//TODO: || chromPass1 is a hack
+			if((x_diff1 <= radius1 && y_diff1 <= radius1) || chromPass1)
+			{
+				spaceDist1 = x_diff1*x_diff1 + y_diff1*y_diff1;
+				spacePass1 = (spaceDist1 <= radius1);
+			}
+
+			if(chromPass1)
+			{
+				rSum1 += r;
+				gSum1 += g;
+				bSum1 += b;
+				xSum1 += x;
+				ySum1 += y;
+				spaceDistSum1 += spaceDist1;
+				if(chromDist1 > maxChromDist1)
+					maxChromDist1 = chromDist1;
+				count1++;
+			}
+
+
+			// orange filter
+			chromPass2 = (r > (g+(g >> 1)) && g > b);
+			if(chromPass2)
+			{
+				rg = r-g;
+				rb = r-b;
+				gb = g-b;
+
+				rg_diff2 = rg_t2 - rg;
+				rb_diff2 = rb_t2 - rb;
+				gb_diff2 = gb_t2 - gb;
+
+				chromDist2 = rg_diff2*rg_diff2 + rb_diff2*rb_diff2 + gb_diff2*gb_diff2;
+				chromPass2 = (chromDist2 < chromDistLimit2);
+			}
+
+			spacePass2 = 0;
+			x_diff2 = x_t2 - x;
+			y_diff2 = y_t2 - y;
+
+			//TODO: || chromPass2 is a hack
+			if((x_diff1 <= radius2 && y_diff1 <= radius2) || chromPass2)
+			{
+				spaceDist2 = x_diff2*x_diff2 + y_diff2*y_diff2;
+				spacePass2 = (spaceDist2 <= radius2);
+			}
+
+			if(chromPass2)
+			{
+				rSum2 += r;
+				gSum2 += g;
+				bSum2 += b;
+				xSum2 += x;
+				ySum2 += y;
+				spaceDistSum2 += spaceDist2;
+				if(chromDist2 > maxChromDist2)
+					maxChromDist2 = chromDist2;
+				count2++;
+			}
+
+
+			// display filtered pixels
+			offset = (y << 11)+(y << 9) + ((639-x) << 2);
+			if(chromPass1 || chromPass2 || spacePass1 || spacePass2 || Displaying)
+			{
+				fptr[offset    ] = b; // blue
+				fptr[offset + 1] = g; // green
+				fptr[offset + 2] = r; // red
+			}
+			else
+			{
+				fptr[offset    ] = 0; // blue
+				fptr[offset + 1] = 0; // green
+				fptr[offset + 2] = 0; // red
+			}
+			x++;
+			if (x == 640){
+				x = 0;
+				y++;
+			}
+		}
+		dataPtr += 2048;
+	}
+
+	// update the target values and thresholds
+	// pink
+	if(count1 != 0)
+	{
+		r_t1 = ((BASE_R1 << 1) + r_t1 + (rSum1 / count1)) >> 2;
+		g_t1 = ((BASE_G1 << 1) + g_t1 + (gSum1 / count1)) >> 2;
+		b_t1 = ((BASE_B1 << 1) + b_t1 + (bSum1 / count1)) >> 2;
+		x_t1 = xSum1 / count1;
+		y_t1 = ySum1 / count1;
+		chromDistLimit1 = maxChromDist1 + 25;
+		newAvgSpaceDist1 = spaceDistSum1 / count1;
+		confidence1 = (avgSpaceDist1 > newAvgSpaceDist1) ?
+				      (avgSpaceDist1 - newAvgSpaceDist1) :
+				      (newAvgSpaceDist1 - avgSpaceDist1);
+		avgSpaceDist1 = (newAvgSpaceDist1 + avgSpaceDist1) >> 1;
+	}
+	// orange
+	if(count2 != 0)
+	{
+		r_t2 = ((BASE_R2 << 1) + r_t2 + (rSum2 / count2)) >> 2;
+		g_t2 = ((BASE_G2 << 1) + g_t2 + (gSum2 / count2)) >> 2;
+		b_t2 = ((BASE_B2 << 1) + b_t2 + (bSum2 / count2)) >> 2;
+		x_t2 = xSum2 / count2;
+		y_t2 = ySum2 / count2;
+		chromDistLimit2 = maxChromDist2 + 25;
+		newAvgSpaceDist2 = spaceDistSum2 / count2;
+		confidence2 = (avgSpaceDist2 > newAvgSpaceDist2) ?
+					  (avgSpaceDist2 - newAvgSpaceDist2) :
+					  (newAvgSpaceDist2 - avgSpaceDist2);
+		avgSpaceDist2 = (newAvgSpaceDist2 + avgSpaceDist2) >> 1;
+	}
+	ReadDipSwitches();
+}
+
+
+void ConfigureDMA()
+{
+	dmaconf = XAxiDma_LookupConfig(XPAR_AXI_DMA_0_DEVICE_ID);
+	XAxiDma_CfgInitialize(&dma, dmaconf);
+	XAxiDma_Resume(&dma);
+	XAxiDma_Reset(&dma);
+	while(!XAxiDma_ResetIsDone(&dma));
+}
+
+void InitVideo()
+{
+	XAxiVdma_CfgInitialize(&vdma, XAxiVdma_LookupConfig(XPAR_AXI_VDMA_0_DEVICE_ID), XPAR_AXI_VDMA_0_BASEADDR);
+	XAxiVdma_Reset(&vdma, XAXIVDMA_READ);
+	while(XAxiVdma_ResetNotDone(&vdma, XAXIVDMA_READ));
+
+	dmasetup.VertSizeInput = 480;
+	dmasetup.HoriSizeInput = 640*4;
+	dmasetup.FrameDelay = 0;
+	dmasetup.EnableCircularBuf = 0;
+	dmasetup.EnableSync = 0;
+	dmasetup.PointNum = 0;
+	dmasetup.EnableFrameCounter = 0;
+
+	dmasetup.Stride = 2560;
+	fptr = (unsigned char*)&frames;
+
+	dmasetup.FixedFrameStoreAddr = 0;
+	dmasetup.FrameStoreStartAddr[0] = (int)fptr;
+	dmasetup.FrameStoreStartAddr[1] = (int)fptr+dmasetup.Stride*480;
+	dmasetup.FrameStoreStartAddr[2] = (int)fptr+dmasetup.Stride*480*2;
+
+	XAxiVdma_DmaConfig(&vdma, XAXIVDMA_READ, &dmasetup);
+	XAxiVdma_DmaSetBufferAddr(&vdma, XAXIVDMA_READ, dmasetup.FrameStoreStartAddr);
+
+	XAxiVdma_DmaStart(&vdma, XAXIVDMA_READ);
+}
+
+int InitDipSwitches()
+{
+	int Status;
+	Status = XGpio_Initialize(&DipSwitchInput, XPAR_DIP_SWITCHES_8BITS_DEVICE_ID);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+	return XST_SUCCESS;
+}
+
+int InitPushButtons()
+{
+	int Status;
+	Status = XGpio_Initialize(&PushButtonInput, XPAR_PUSH_BUTTONS_5BITS_DEVICE_ID);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+	return XST_SUCCESS;
+}
+
+int InitLeds()
+{
+	int Status;
+	Status = XGpio_Initialize(&LedOutput, XPAR_LEDS_8BITS_DEVICE_ID);
+	if (Status != XST_SUCCESS)  {
+	  return XST_FAILURE;
+	}
+	return XST_SUCCESS;
+}
+
+
+void ReadDipSwitches()
+{
+	u32 input = XGpio_DiscreteRead(&DipSwitchInput, GPIO_CHANNEL);
+	JoystickMode = (input & 0x0001);
+	CommandMode  = (input & 0x0002) >> 1;
+	VisualMode   = (input & 0x0004) >> 1; //TODO: Should probably be >> 2
+	
+	// only lights the least significant set bit
+	XGpio_DiscreteWrite(&LedOutput, GPIO_CHANNEL, input & ~(input - 1));
+}
+
+void ReadPushButtons()
+{
+	u32 input = XGpio_DiscreteRead(&PushButtonInput, GPIO_CHANNEL);
+	Continue  = (input & 0x0001);
+}

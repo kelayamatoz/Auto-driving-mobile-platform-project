@@ -1,0 +1,2 @@
+VHDL chipscope_ila_0_v1_05_a /afs/ir.stanford.edu/class/ee109/groups/6/jstk/hdl/elaborate/chipscope_ila_0_v1_05_a/synhdl/vhdl/chipscope_ila_0.vhd
+vhdl work ../hdl/chipscope_ila_0_wrapper.vhd

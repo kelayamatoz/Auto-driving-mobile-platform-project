@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="ConstraintSystem" num="0" >The Offset constraint &lt;OFFSET = IN 6.000 BEFORE  &quot;Ethernet_Lite_RX_CLK&quot;;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/ethernet_lite_wrapper.ncf(3)], is specified without a duration.  This will result in a lack of hold time checks in timing reports.  If hold time checks are desired a duration value should be specified following the &apos;VALID&apos; keyword.
+</msg>
+
+<msg type="warning" file="NgdBuild" num="1445" delta="new" >No net associated with <arg fmt="%s" index="1">Ethernet_Lite_RX_CLK</arg> from OFFSET constraint <arg fmt="%s" index="2">&lt;OFFSET = IN 6.000 BEFORE  &quot;Ethernet_Lite_RX_CLK&quot;;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/ethernet_lite_wrapper.ncf(3)]</arg>
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="192" delta="new" >The <arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">D2_CLK</arg>&apos;, does not directly or indirectly drive any flip-flops, latches and/or RAMS and cannot be actively used by the referencing <arg fmt="%s" index="3">TIg</arg> constraint &apos;<arg fmt="%s" index="4"></arg>&apos;. If clock manager blocks are directly or indirectly driven, a new TNM constraint will not be derived since the none of the referencing constraints are a PERIOD constraint. This TNM is used in the following user groups and/or specifications:
+<arg fmt="%s" index="5">&lt;TIMESPEC TS_D2_TO_T2 = FROM D2_CLK TO &quot;FFS&quot; TIG;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_ila_0_wrapper.ncf(6)]
+&lt;TIMESPEC TS_J2_TO_D2 = FROM &quot;FFS&quot; TO D2_CLK TIG;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_ila_0_wrapper.ncf(7)]
+&lt;TIMESPEC TS_J3_TO_D2 = FROM &quot;FFS&quot; TO D2_CLK TIG;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_ila_0_wrapper.ncf(8)]
+&lt;TIMESPEC TS_J4_TO_D2 = FROM &quot;FFS&quot; TO D2_CLK TIG;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_ila_0_wrapper.ncf(9)]
+</arg></msg>
+
+<msg type="warning" file="ConstraintSystem" num="197" delta="new" >The following specification is invalid because the referenced TNM constraint was removed:
+<arg fmt="%s" index="1">&lt;TIMESPEC TS_D2_TO_T2 = FROM D2_CLK TO &quot;FFS&quot; TIG;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_ila_0_wrapper.ncf(6)]</arg>
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="197" delta="new" >The following specification is invalid because the referenced TNM constraint was removed:
+<arg fmt="%s" index="1">&lt;TIMESPEC TS_J2_TO_D2 = FROM &quot;FFS&quot; TO D2_CLK TIG;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_ila_0_wrapper.ncf(7)]</arg>
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="197" delta="new" >The following specification is invalid because the referenced TNM constraint was removed:
+<arg fmt="%s" index="1">&lt;TIMESPEC TS_J3_TO_D2 = FROM &quot;FFS&quot; TO D2_CLK TIG;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_ila_0_wrapper.ncf(8)]</arg>
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="197" delta="new" >The following specification is invalid because the referenced TNM constraint was removed:
+<arg fmt="%s" index="1">&lt;TIMESPEC TS_J4_TO_D2 = FROM &quot;FFS&quot; TO D2_CLK TIG;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_ila_0_wrapper.ncf(9)]</arg>
+</msg>
+
+<msg type="info" file="NgdBuild" num="981" delta="new" >Could not find any associations for the following constraint:
+    &apos;<arg fmt="%s" index="1">&lt;INST &quot;U0/*/U_STAT/U_DIRTY_LDC&quot; TNM = D2_CLK;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_ila_0_wrapper.ncf(5)]</arg>&apos;
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="190" delta="new" >The <arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">J_CLK</arg>&apos;, does not directly or indirectly drive any flip-flops, latches and/or RAMS and cannot be actively used by the referencing <arg fmt="%s" index="3">Period</arg> constraint &apos;<arg fmt="%s" index="4">TS_J_CLK</arg>&apos;. If clock manager blocks are directly or indirectly driven, a new TNM and PERIOD are derived only if the PERIOD constraint is the only referencing constraint and if an output of the clock manager block drives flip-flops, latches or RAMs.  
+This TNM is used in the following user groups and/or specifications:
+<arg fmt="%s" index="5">&lt;TIMESPEC TS_J_CLK = PERIOD J_CLK 30 ns ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(2)]
+&lt;TIMESPEC TS_U_TO_J = FROM U_CLK TO J_CLK 15 ns ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(6)]
+&lt;TIMESPEC TS_J_TO_D = FROM J_CLK TO D_CLK TIG ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(8)]
+&lt;TIMESPEC TS_D_TO_J = FROM D_CLK TO J_CLK TIG ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(9)]
+</arg></msg>
+
+<msg type="warning" file="ConstraintSystem" num="197" delta="new" >The following specification is invalid because the referenced TNM constraint was removed:
+<arg fmt="%s" index="1">&lt;TIMESPEC TS_J_CLK = PERIOD J_CLK 30 ns ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(2)]</arg>
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="197" delta="new" >The following specification is invalid because the referenced TNM constraint was removed:
+<arg fmt="%s" index="1">&lt;TIMESPEC TS_U_TO_J = FROM U_CLK TO J_CLK 15 ns ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(6)]</arg>
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="197" delta="new" >The following specification is invalid because the referenced TNM constraint was removed:
+<arg fmt="%s" index="1">&lt;TIMESPEC TS_J_TO_D = FROM J_CLK TO D_CLK TIG ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(8)]</arg>
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="197" delta="new" >The following specification is invalid because the referenced TNM constraint was removed:
+<arg fmt="%s" index="1">&lt;TIMESPEC TS_D_TO_J = FROM D_CLK TO J_CLK TIG ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(9)]</arg>
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="192" delta="new" >The <arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">U_CLK</arg>&apos;, does not directly or indirectly drive any flip-flops, latches and/or RAMS and cannot be actively used by the referencing <arg fmt="%s" index="3">MaxDelay</arg> constraint &apos;<arg fmt="%s" index="4">TS_U_TO_J</arg>&apos;. If clock manager blocks are directly or indirectly driven, a new TNM constraint will not be derived since the none of the referencing constraints are a PERIOD constraint. This TNM is used in the following user groups and/or specifications:
+<arg fmt="%s" index="5">&lt;TIMESPEC TS_U_TO_J = FROM U_CLK TO J_CLK 15 ns ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(6)]
+&lt;TIMESPEC TS_U_TO_U = FROM U_CLK TO U_CLK 15 ns ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(7)]
+</arg></msg>
+
+<msg type="warning" file="ConstraintSystem" num="197" delta="new" >The following specification is invalid because the referenced TNM constraint was removed:
+<arg fmt="%s" index="1">&lt;TIMESPEC TS_U_TO_J = FROM U_CLK TO J_CLK 15 ns ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(6)]</arg>
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="197" delta="new" >The following specification is invalid because the referenced TNM constraint was removed:
+<arg fmt="%s" index="1">&lt;TIMESPEC TS_U_TO_U = FROM U_CLK TO U_CLK 15 ns ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(7)]</arg>
+</msg>
+
+<msg type="info" file="NgdBuild" num="981" delta="new" >Could not find any associations for the following constraint:
+    &apos;<arg fmt="%s" index="1">&lt;NET &quot;U0/U_ICON/*/iDRCK_LOCAL&quot; TNM_NET = J_CLK ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(1)]</arg>&apos;
+</msg>
+
+<msg type="info" file="NgdBuild" num="981" delta="new" >Could not find any associations for the following constraint:
+    &apos;<arg fmt="%s" index="1">&lt;NET &quot;U0/iUPDATE_OUT&quot; TNM_NET = U_CLK ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(4)]</arg>&apos;
+</msg>
+
+<msg type="warning" file="NgdBuild" num="981" delta="new" >Could not find any associations for the following constraint:
+    &apos;<arg fmt="%s" index="1">&lt;NET &quot;U0/iSHIFT_OUT&quot; TIG ;&gt; [/afs/ir.stanford.edu/class/ee109/groups/6/jstk/implementation/chipscope_icon_0_wrapper.ncf(5)]</arg>&apos;
+</msg>
+
+<msg type="info" file="NgdBuild" num="1317" delta="new" >Using core <arg fmt="%s" index="1">chipscope_ila_v1</arg> requires a ChipScopePro license.  The following blocks are instances of core <arg fmt="%s" index="2">chipscope_ila_v1</arg>:
+</msg>
+
+<msg type="info" file="NgdBuild" num="1317" delta="new" >Using core <arg fmt="%s" index="1">chipscope_ila_v1</arg> requires a ChipScopePro license.  The following blocks are instances of core <arg fmt="%s" index="2">chipscope_ila_v1</arg>:
+</msg>
+
+<msg type="warning" file="NgdBuild" num="931" delta="new" >The value of SIM_DEVICE on instance &apos;<arg fmt="%s" index="1">microblaze_0_bram_block/microblaze_0_bram_block/ramb16bwer_0</arg>&apos; of type <arg fmt="%s" index="2">RAMB16BWER</arg> has been changed from &apos;<arg fmt="%s" index="3">SPARTAN3ADSP</arg>&apos; to &apos;<arg fmt="%s" index="4">SPARTAN6</arg>&apos; to correct post-ngdbuild and timing simulation for this primitive.  In order for functional simulation to be correct, the value of SIM_DEVICE should be changed in this same manner in the source netlist or constraint file.
+</msg>
+
+<msg type="warning" file="NgdBuild" num="931" delta="new" >The value of SIM_DEVICE on instance &apos;<arg fmt="%s" index="1">microblaze_0_bram_block/microblaze_0_bram_block/ramb16bwer_1</arg>&apos; of type <arg fmt="%s" index="2">RAMB16BWER</arg> has been changed from &apos;<arg fmt="%s" index="3">SPARTAN3ADSP</arg>&apos; to &apos;<arg fmt="%s" index="4">SPARTAN6</arg>&apos; to correct post-ngdbuild and timing simulation for this primitive.  In order for functional simulation to be correct, the value of SIM_DEVICE should be changed in this same manner in the source netlist or constraint file.
+</msg>
+
+<msg type="warning" file="NgdBuild" num="931" delta="new" >The value of SIM_DEVICE on instance &apos;<arg fmt="%s" index="1">microblaze_0_bram_block/microblaze_0_bram_block/ramb16bwer_2</arg>&apos; of type <arg fmt="%s" index="2">RAMB16BWER</arg> has been changed from &apos;<arg fmt="%s" index="3">SPARTAN3ADSP</arg>&apos; to &apos;<arg fmt="%s" index="4">SPARTAN6</arg>&apos; to correct post-ngdbuild and timing simulation for this primitive.  In order for functional simulation to be correct, the value of SIM_DEVICE should be changed in this same manner in the source netlist or constraint file.
+</msg>
+
+<msg type="warning" file="NgdBuild" num="931" delta="new" >The value of SIM_DEVICE on instance &apos;<arg fmt="%s" index="1">microblaze_0_bram_block/microblaze_0_bram_block/ramb16bwer_3</arg>&apos; of type <arg fmt="%s" index="2">RAMB16BWER</arg> has been changed from &apos;<arg fmt="%s" index="3">SPARTAN3ADSP</arg>&apos; to &apos;<arg fmt="%s" index="4">SPARTAN6</arg>&apos; to correct post-ngdbuild and timing simulation for this primitive.  In order for functional simulation to be correct, the value of SIM_DEVICE should be changed in this same manner in the source netlist or constraint file.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_J_CLK = PERIOD &quot;J_CLK&quot; 30000.000000000 pS HIGH 50.000000000 %;&gt;</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TNM&apos; or &apos;TimeGrp&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">J_CLK</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_U_TO_J = FROM &quot;U_CLK&quot; TO &quot;J_CLK&quot; 15000.000000000 pS;&gt;</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">U_CLK</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_U_TO_J = FROM &quot;U_CLK&quot; TO &quot;J_CLK&quot; 15000.000000000 pS;&gt;</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">J_CLK</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_U_TO_U = FROM &quot;U_CLK&quot; TO &quot;U_CLK&quot; 15000.000000000 pS;&gt;</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">U_CLK</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_U_TO_U = FROM &quot;U_CLK&quot; TO &quot;U_CLK&quot; 15000.000000000 pS;&gt;</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">U_CLK</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_J_TO_D = FROM &quot;J_CLK&quot; TO &quot;D_CLK&quot; TIG;&gt;</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">J_CLK</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_D_TO_J = FROM &quot;D_CLK&quot; TO &quot;J_CLK&quot; TIG;&gt;</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">J_CLK</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="135" delta="new" >Constraint <arg fmt="%s" index="1">&lt;INST /system/EXPANDED/system/axi4_0/axi4_0\/si_converter_bank\/gen_conv_slot[0].clock_conv_inst\/interconnect_aresetn_resync&lt;2&gt;_inv1_INV_0 TNM = FFS:axi4_0_reset_resync&gt;</arg>: No instances of type <arg fmt="%s" index="2">FFS</arg> were found under block &quot;<arg fmt="%s" index="3">axi4_0/axi4_0/si_converter_bank/gen_conv_slot[0].clock_conv_inst/interconnect_aresetn_resync&lt;2&gt;_inv1_INV_0</arg>&quot; (type=<arg fmt="%s" index="4">INV</arg>).
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="135" delta="new" >Constraint <arg fmt="%s" index="1">&lt;INST /system/EXPANDED/system/axi4lite_0/axi4lite_0\/si_converter_bank\/gen_conv_slot[0].clock_conv_inst\/interconnect_aresetn_resync&lt;2&gt;_inv1_INV_0 TNM = FFS:axi4lite_0_reset_resync&gt;</arg>: No instances of type <arg fmt="%s" index="2">FFS</arg> were found under block &quot;<arg fmt="%s" index="3">axi4lite_0/axi4lite_0/si_converter_bank/gen_conv_slot[0].clock_conv_inst/interconnect_aresetn_resync&lt;2&gt;_inv1_INV_0</arg>&quot; (type=<arg fmt="%s" index="4">INV</arg>).
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_D2_TO_T2 = FROM &quot;D2_CLK&quot; TO FFS TIG;&gt;</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">D2_CLK</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_J2_TO_D2 = FROM FFS TO &quot;D2_CLK&quot; TIG;&gt;</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">D2_CLK</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_J3_TO_D2 = FROM FFS TO &quot;D2_CLK&quot; TIG;&gt;</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">D2_CLK</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC TS_J4_TO_D2 = FROM FFS TO &quot;D2_CLK&quot; TIG;&gt;</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">D2_CLK</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="58" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMEGRP axi4lite_0_reset_source = FFS PADS CPUS;&gt;</arg>: <arg fmt="%s" index="2">CPUS &quot;*&quot;</arg> does not match any design objects.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="58" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMEGRP axi4_0_reset_source = FFS PADS CPUS;&gt;</arg>: <arg fmt="%s" index="2">CPUS &quot;*&quot;</arg> does not match any design objects.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC &quot;TS_CAM_TIG_0&quot;=FROM &quot;CAMA_PCLK_I&quot; TO &quot;clk_100_0000MHzPLL0&quot; TIG;&gt; [system.ucf(137)]</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">clk_100_0000MHzPLL0</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC &quot;TS_CAM_TIG_1&quot;=FROM &quot;clk_100_0000MHzPLL0&quot; TO &quot;CAMA_PCLK_I&quot; TIG;&gt; [system.ucf(138)]</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">clk_100_0000MHzPLL0</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC &quot;TS_CAM_TIG_2&quot;=FROM &quot;clock_generator_0_CLKOUT3&quot; TO &quot;clk_100_0000MHzPLL0&quot; TIG;&gt; [system.ucf(139)]</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">clock_generator_0_CLKOUT3</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC &quot;TS_CAM_TIG_2&quot;=FROM &quot;clock_generator_0_CLKOUT3&quot; TO &quot;clk_100_0000MHzPLL0&quot; TIG;&gt; [system.ucf(139)]</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">clk_100_0000MHzPLL0</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC &quot;TS_CAM_TIG_3&quot;=FROM &quot;clk_100_0000MHzPLL0&quot; TO &quot;clock_generator_0_CLKOUT3&quot; TIG;&gt; [system.ucf(140)]</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">clk_100_0000MHzPLL0</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="56" delta="new" >Constraint <arg fmt="%s" index="1">&lt;TIMESPEC &quot;TS_CAM_TIG_3&quot;=FROM &quot;clk_100_0000MHzPLL0&quot; TO &quot;clock_generator_0_CLKOUT3&quot; TIG;&gt; [system.ucf(140)]</arg>: Unable to find an active <arg fmt="%s" index="2">&apos;TimeGrp&apos; or &apos;TNM&apos; or &apos;TPSync&apos;</arg> constraint named &apos;<arg fmt="%s" index="3">clock_generator_0_CLKOUT3</arg>&apos;.
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >TNM : m_axi_mm2s_aclk was distributed to a DCM but new TNM constraints were not derived. This TNM is used in the following user groups or specifications:
+&lt;TIMESPEC TS_axi_vdma_0_from_s_axi_lite_aclk_to_m_axi_mm2s_aclk = FROM &quot;s_axi_lite_aclk&quot; TO &quot;m_axi_mm2s_aclk&quot; TIG;&gt;
+&lt;TIMESPEC TS_axi_vdma_0_from_m_axi_mm2s_aclk_to_s_axi_lite_aclk = FROM &quot;m_axi_mm2s_aclk&quot; TO &quot;s_axi_lite_aclk&quot; TIG;&gt;
+&lt;TIMESPEC TS_axi_vdma_0_from_m_axi_mm2s_aclk_to_m_axis_mm2s_aclk = FROM &quot;m_axi_mm2s_aclk&quot; TO &quot;m_axis_mm2s_aclk&quot; TIG;&gt;
+&lt;TIMESPEC TS_axi_vdma_0_from_m_axis_mm2s_aclk_to_m_axi_mm2s_aclk = FROM &quot;m_axis_mm2s_aclk&quot; TO &quot;m_axi_mm2s_aclk&quot; TIG;&gt;
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >TNM : s_axi_lite_aclk was distributed to a DCM but new TNM constraints were not derived. This TNM is used in the following user groups or specifications:
+&lt;TIMESPEC TS_axi_vdma_0_from_s_axi_lite_aclk_to_m_axi_mm2s_aclk = FROM &quot;s_axi_lite_aclk&quot; TO &quot;m_axi_mm2s_aclk&quot; TIG;&gt;
+&lt;TIMESPEC TS_axi_vdma_0_from_m_axi_mm2s_aclk_to_s_axi_lite_aclk = FROM &quot;m_axi_mm2s_aclk&quot; TO &quot;s_axi_lite_aclk&quot; TIG;&gt;
+&lt;TIMESPEC TS_axi_vdma_0_from_s_axi_lite_aclk_to_m_axis_mm2s_aclk = FROM &quot;s_axi_lite_aclk&quot; TO &quot;m_axis_mm2s_aclk&quot; TIG;&gt;
+&lt;TIMESPEC TS_axi_vdma_0_from_m_axis_mm2s_aclk_to_s_axi_lite_aclk = FROM &quot;m_axis_mm2s_aclk&quot; TO &quot;s_axi_lite_aclk&quot; TIG;&gt;
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >TNM : S_AXI_ACLK_Ethernet_Lite was distributed to a DCM but new TNM constraints were not derived. This TNM is used in the following user groups or specifications:
+&lt;TIMESPEC TS_AXI_TX_FP_Ethernet_Lite = FROM &quot;S_AXI_ACLK_Ethernet_Lite&quot; TO &quot;TXCLK_GRP_Ethernet_Lite&quot; TIG;&gt;
+&lt;TIMESPEC TS_TX_AXI_FP_Ethernet_Lite = FROM &quot;TXCLK_GRP_Ethernet_Lite&quot; TO &quot;S_AXI_ACLK_Ethernet_Lite&quot; TIG;&gt;
+&lt;TIMESPEC TS_AXI_RX_FP_Ethernet_Lite = FROM &quot;S_AXI_ACLK_Ethernet_Lite&quot; TO &quot;RXCLK_GRP_Ethernet_Lite&quot; TIG;&gt;
+&lt;TIMESPEC TS_RX_AXI_FP_Ethernet_Lite = FROM &quot;RXCLK_GRP_Ethernet_Lite&quot; TO &quot;S_AXI_ACLK_Ethernet_Lite&quot; TIG;&gt;
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >TNM : globclk was distributed to a DCM but new TNM constraints were not derived. This TNM is used in the following user groups or specifications:
+&lt;TIMESPEC TS_path1 = FROM globclk TO hdmipclk 14ns;&gt; [system.ucf(33)]
+&lt;TIMESPEC TS_path2 = FROM hdmipclk TO globclk 10ns;&gt; [system.ucf(34)]
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="194" delta="new" >The <arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">axi4_0_reset_resync</arg>&apos;, does not directly or indirectly drive any flip-flops, latches and/or RAMs and is not actively used by any referencing constraint.
+ </msg>
+
+<msg type="warning" file="ConstraintSystem" num="194" delta="new" >The <arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">axi4lite_0_reset_resync</arg>&apos;, does not directly or indirectly drive any flip-flops, latches and/or RAMs and is not actively used by any referencing constraint.
+ </msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="new" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">sys_clk_pin</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_sys_clk_pin</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">clock_generator_0/PLL0_INST/Using_PLL_ADV.PLL_ADV_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT1</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_clk_600_0000MHz180PLL0_nobuf = PERIOD &quot;clk_600_0000MHz180PLL0_nobuf&quot; TS_sys_clk_pin * 6 PHASE 0.833333333 ns HIGH 50%&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="new" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">sys_clk_pin</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_sys_clk_pin</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">clock_generator_0/PLL0_INST/Using_PLL_ADV.PLL_ADV_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT0</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_clk_600_0000MHzPLL0_nobuf = PERIOD &quot;clk_600_0000MHzPLL0_nobuf&quot; TS_sys_clk_pin * 6 HIGH 50%&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="new" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">sys_clk_pin</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_sys_clk_pin</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">clock_generator_0/PLL0_INST/Using_PLL_ADV.PLL_ADV_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT2</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_clock_generator_0_clock_generator_0_SIG_PLL0_CLKOUT2 = PERIOD &quot;clock_generator_0_clock_generator_0_SIG_PLL0_CLKOUT2&quot; TS_sys_clk_pin HIGH 50%&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="new" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">sys_clk_pin</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_sys_clk_pin</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">clock_generator_0/PLL1_INST/Using_PLL_ADV.PLL_ADV_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT1</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_clock_generator_0_clock_generator_0_SIG_PLL1_CLKOUT1 = PERIOD &quot;clock_generator_0_clock_generator_0_SIG_PLL1_CLKOUT1&quot; TS_sys_clk_pin * 0.24 PHASE 20.833333333 ns HIGH 50%&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="new" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">sys_clk_pin</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_sys_clk_pin</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">clock_generator_0/PLL1_INST/Using_PLL_ADV.PLL_ADV_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT0</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_clock_generator_0_clock_generator_0_SIG_PLL1_CLKOUT0 = PERIOD &quot;clock_generator_0_clock_generator_0_SIG_PLL1_CLKOUT0&quot; TS_sys_clk_pin * 0.24 HIGH 50%&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="new" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">clock_generator_0_clock_generator_0_SIG_PLL0_CLKOUT2</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_clock_generator_0_clock_generator_0_SIG_PLL0_CLKOUT2</arg>&apos;, was traced into <arg fmt="%s" index="4">DCM_CLKGEN</arg> instance <arg fmt="%s" index="5">axi_hdmi_0/USE_HDMI_OUT.Inst_AxiHDMITransmitter/Inst_DynClkGen/DCM_CLKGEN_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">DCM_CLKGEN</arg> output(s): 
+<arg fmt="%s" index="7">CLKFX</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_DcmClkO_1 = PERIOD &quot;axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_DcmClkO_1&quot; TS_clo...&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="new" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_DcmClkO_1</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_DcmClkO_1</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">PLL_ADV</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT3</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_PllOut_x2_1 = PERIOD &quot;axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_PllOut_x2_1&quot; TS...&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="new" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_DcmClkO_1</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_DcmClkO_1</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">PLL_ADV</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT1</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_PllOut_x1_1 = PERIOD &quot;axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_PllOut_x1_1&quot; TS...&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="new" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_DcmClkO_1</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_DcmClkO_1</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">PLL_ADV</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT0</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_PllOut_x10_1 = PERIOD &quot;axi_hdmi_0_axi_hdmi_0_USE_HDMI_OUT_Inst_AxiHDMITransmitter_Inst_DynClkGen_PllOut_x10_1&quot; ...&gt;</arg>
+</msg>
+
+<msg type="warning" file="ConstraintSystem" num="0" >The Offset constraint &lt;OFFSET = IN 6000.000000000 pS BEFORE Ethernet_Lite_RX_CLK;&gt;, is specified without a duration.  This will result in a lack of hold time checks in timing reports.  If hold time checks are desired a duration value should be specified following the &apos;VALID&apos; keyword.
+</msg>
+
+<msg type="warning" file="NgdBuild" num="1012" delta="new" >The constraint <arg fmt="%s" index="1">&lt;CONFIG VCCAUX = &quot;2.5&quot;&gt;</arg> is overridden on the design object <arg fmt="%s" index="2">system</arg> by the constraint <arg fmt="%s" index="3">&lt;CONFIG VCCAUX = 3.3;&gt; [system.ucf(1)]</arg>.
+</msg>
+
+<msg type="warning" file="NgdBuild" num="1012" delta="new" >The constraint <arg fmt="%s" index="1">&lt;NET &quot;zio&quot; IOSTANDARD = &quot;SSTL18_II&quot;&gt;</arg> is overridden on the design object <arg fmt="%s" index="2">zio</arg> by the constraint <arg fmt="%s" index="3">&lt;NET zio IOSTANDARD = &quot;LVCMOS18_JEDEC&quot;;&gt; [system.ucf(80)]</arg>.
+</msg>
+
+<msg type="warning" file="NgdBuild" num="1012" delta="new" >The constraint <arg fmt="%s" index="1">&lt;NET &quot;rzq&quot; IOSTANDARD = &quot;SSTL18_II&quot;&gt;</arg> is overridden on the design object <arg fmt="%s" index="2">rzq</arg> by the constraint <arg fmt="%s" index="3">&lt;NET rzq IOSTANDARD = &quot;LVCMOS18_JEDEC&quot;;&gt; [system.ucf(79)]</arg>.
+</msg>
+
+<msg type="warning" file="NgdBuild" num="1440" delta="new" >User specified non-default attribute value (<arg fmt="%s" index="1">10</arg>) was detected for the <arg fmt="%s" index="2">CLKIN1_PERIOD</arg> attribute on <arg fmt="%s" index="3">PLL</arg> &quot;<arg fmt="%s" index="4">PLL_ADV</arg>&quot;.  This does not match the PERIOD constraint value (<arg fmt="%s" index="5">74400 KHz.</arg>).  The uncertainty calculation will use the PERIOD constraint value.  This could result in incorrect uncertainty calculated for <arg fmt="%s" index="6">PLL</arg> output clocks.
+</msg>
+
+<msg type="warning" file="NgdBuild" num="443" delta="new" >SFF primitive &apos;<arg fmt="%s" index="1">Ethernet_Lite/Ethernet_Lite/XEMAC_I/EMAC_I/COLLISION_SYNC_2</arg>&apos; has unconnected output pin
+</msg>
+
+<msg type="warning" file="NgdBuild" num="443" delta="new" >SFF primitive &apos;<arg fmt="%s" index="1">microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Decode_I/Using_FPGA.Gen_Bits[27].MEM_EX_Result_Inst</arg>&apos; has unconnected output pin
+</msg>
+
+<msg type="warning" file="NgdBuild" num="478" delta="new" >clock net <arg fmt="%s" index="1">bscan_drck1</arg> with clock driver <arg fmt="%s" index="2">debug_module/debug_module/BUFG_DRCK1</arg> drives no clock pins
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">bscan_tdo1</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N28</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N29</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N30</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N31</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N32</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N33</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N34</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N35</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N36</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N37</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N38</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N39</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N40</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N41</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N42</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N43</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N44</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N45</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N46</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N47</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N48</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N49</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="483" delta="new" >Attribute &quot;<arg fmt="%s" index="1">INIT</arg>&quot; on &quot;<arg fmt="%s" index="2">axi_dma_0/axi_dma_0/s2mm_smpl_done</arg>&quot; is on the wrong type of object.  Please see the Constraints Guide for more information on this attribute.
+</msg>
+
+</messages>
+

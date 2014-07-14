@@ -1,0 +1,13 @@
+run
+-opt_mode speed
+-netlist_hierarchy as_optimized
+-opt_level 1
+-p xc6slx45csg324-3
+-top ethernet_lite_wrapper
+-ifmt MIXED
+-ifn ethernet_lite_wrapper_xst.prj
+-ofn ../implementation/ethernet_lite_wrapper.ngc
+-hierarchy_separator /
+-iobuf NO
+-sd {../implementation}
+-vlgincdir {"/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/" "/usr/class/ee109/xilinx_lab_sources/Atlys_BSB_Support_v_3_6/Atlys_AXI_BSB_Support/lib/Digilent/pcores/" "/opt/Xilinx/13.4/ISE_DS/EDK/hw/XilinxBFMinterface/pcores/" "/opt/Xilinx/13.4/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/" }

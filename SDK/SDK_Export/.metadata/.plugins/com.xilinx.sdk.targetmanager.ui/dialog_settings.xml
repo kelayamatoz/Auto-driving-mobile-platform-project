@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="bootloop" key="jstk-microblaze_0-initElf"/>
+	<item value="/afs/ir.stanford.edu/class/ee109/groups/6/jstk/SDK/SDK_Export/jstk/system.bit" key="jstk-bitFile"/>
+	<item value="/afs/ir.stanford.edu/class/ee109/groups/6/jstk/SDK/SDK_Export/jstk/system_bd.bmm" key="jstk-bmmFile"/>
+</section>

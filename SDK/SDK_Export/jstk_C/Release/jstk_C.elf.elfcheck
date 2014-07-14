@@ -1,0 +1,8 @@
+elfcheck
+Xilinx EDK 13.4 Build EDK_O.87xd
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../jstk/system.xml -pe microblaze_0 jstk_C.elf 
+
+ELF file	: jstk_C.elf
+elfcheck passed.

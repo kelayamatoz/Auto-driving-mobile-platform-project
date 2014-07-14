@@ -1,0 +1,802 @@
+Release 13.4 - xst O.87xd (lin)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input Format                       : MIXED
+Input File Name                    : "camera_stream_0_wrapper_xst.prj"
+Verilog Include Directory          : {"/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/" "/usr/class/ee109/xilinx_lab_sources/Atlys_BSB_Support_v_3_6/Atlys_AXI_BSB_Support/lib/Digilent/pcores/" "/opt/Xilinx/13.4/ISE_DS/EDK/hw/XilinxBFMinterface/pcores/" "/opt/Xilinx/13.4/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/" }
+
+---- Target Parameters
+Target Device                      : xc6slx45csg324-3
+Output File Name                   : "../implementation/camera_stream_0_wrapper.ngc"
+
+---- Source Options
+Top Module Name                    : camera_stream_0_wrapper
+
+---- Target Options
+Add IO Buffers                     : NO
+
+---- General Options
+Optimization Goal                  : speed
+Netlist Hierarchy                  : as_optimized
+Optimization Effort                : 1
+Hierarchy Separator                : /
+
+---- Other Options
+Cores Search Directories           : {../implementation}
+
+=========================================================================
+
+INFO:Xst - Part-select index evaluated to out of bound value may lead to incorrect synthesis results; it is recommended not to use them in RTL
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/verilog/camera_stream.v" into library camera_stream_v1_00_a
+Parsing module <camera_stream>.
+Analyzing Verilog file "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/verilog/camera_fifo.v" into library camera_stream_v1_00_a
+Parsing module <camera_fifo>.
+Parsing VHDL file "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/digilent/LocalRst.vhd" into library camera_stream_v1_00_a
+Parsing entity <LocalRst>.
+Parsing architecture <Behavioral> of entity <localrst>.
+Parsing VHDL file "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/digilent/TWICtl.vhd" into library camera_stream_v1_00_a
+Parsing package <TWIUtils>.
+Parsing package body <TWIUtils>.
+Parsing entity <TWICtl>.
+Parsing architecture <Behavioral> of entity <twictl>.
+Parsing VHDL file "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/camctl.vhd" into library camera_stream_v1_00_a
+Parsing entity <CamCtl>.
+Parsing architecture <Behavioral> of entity <camctl>.
+Parsing VHDL file "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/hdl/camera_stream_0_wrapper.vhd" into library work
+Parsing entity <camera_stream_0_wrapper>.
+Parsing architecture <STRUCTURE> of entity <camera_stream_0_wrapper>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <camera_stream_0_wrapper> (architecture <STRUCTURE>) from library <work>.
+Going to verilog side to elaborate module camera_stream
+
+Elaborating module <camera_stream>.
+
+Elaborating module <camera_fifo>.
+WARNING:HDLCompiler:1499 - "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/verilog/camera_fifo.v" Line 39: Empty module <camera_fifo> remains a black box.
+Going to vhdl side to elaborate module CamCtl
+
+Elaborating entity <CamCtl> (architecture <Behavioral>) from library <camera_stream_v1_00_a>.
+
+Elaborating entity <TWICtl> (architecture <Behavioral>) with generics from library <camera_stream_v1_00_a>.
+WARNING:HDLCompiler:1127 - "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/digilent/TWICtl.vhd" Line 169: Assignment to fstop ignored, since the identifier is never used
+INFO:HDLCompiler:679 - "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/digilent/TWICtl.vhd" Line 350. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/digilent/TWICtl.vhd" Line 383. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/digilent/TWICtl.vhd" Line 401. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/digilent/TWICtl.vhd" Line 419. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/digilent/TWICtl.vhd" Line 437. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/camctl.vhd" Line 462. Case statement is complete. others clause is never selected
+Back to verilog to continue elaboration
+Back to vhdl to continue elaboration
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <camera_stream_0_wrapper>.
+    Related source file is "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/hdl/camera_stream_0_wrapper.vhd".
+    Summary:
+	no macro.
+Unit <camera_stream_0_wrapper> synthesized.
+
+Synthesizing Unit <camera_stream>.
+    Related source file is "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/verilog/camera_stream.v".
+    Set property "BUFFER_TYPE = BUFG" for signal <PCLK_I>.
+WARNING:Xst:647 - Input <S_AXIS_TDATA<31:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <S_AXIS_TLAST> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <S_AXIS_TVALID> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/verilog/camera_stream.v" line 238: Output port <full> of the instance <fifo> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/verilog/camera_stream.v" line 238: Output port <valid> of the instance <fifo> is unconnected or connected to loadless signal.
+    Found 20-bit register for signal <pixel>.
+    Found 10-bit register for signal <count>.
+    Found 10-bit adder for signal <count[9]_GND_6_o_add_1_OUT> created at line 183.
+    Found 20-bit adder for signal <pixel[19]_GND_6_o_add_10_OUT> created at line 226.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  30 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <camera_stream> synthesized.
+
+Synthesizing Unit <CamCtl>.
+    Related source file is "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/camctl.vhd".
+    Set property "KEEP = TRUE" for signal <initWord>.
+    Set property "KEEP = TRUE" for signal <initFb>.
+    Set property "buffer_type = BUFG" for signal <PCLK_I>.
+WARNING:Xst:647 - Input <FV_I> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/camctl.vhd" line 274: Output port <ERRTYPE_O> of the instance <Inst_TWICtl> is unconnected or connected to loadless signal.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <CamInitRAM>, simulation mismatch.
+    Found 26x33-bit single-port RAM <Mram_CamInitRAM> for signal <CamInitRAM>.
+    Found 1-bit register for signal <DV_O>.
+    Found 1-bit register for signal <intRst>.
+    Found 22-bit register for signal <rstCnt>.
+    Found 1-bit register for signal <VDDEN_O>.
+    Found 1-bit register for signal <cam_data_sel>.
+    Found 16-bit register for signal <D_O>.
+    Found 5-bit register for signal <initA>.
+    Found 15-bit register for signal <waitCnt>.
+    Found 8-bit register for signal <regData1>.
+    Found 3-bit register for signal <state>.
+    Found 1-bit register for signal <RST_O>.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 8                                              |
+    | Transitions        | 18                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 12                                             |
+    | Clock              | CLK (rising_edge)                              |
+    | Reset              | intRst (positive)                              |
+    | Reset type         | synchronous                                    |
+    | Reset State        | stidle                                         |
+    | Power Up State     | stidle                                         |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 22-bit adder for signal <rstCnt[21]_GND_13_o_add_5_OUT> created at line 231.
+    Found 5-bit adder for signal <initA[4]_GND_13_o_add_20_OUT> created at line 317.
+    Found 15-bit subtractor for signal <GND_13_o_GND_13_o_sub_25_OUT<14:0>> created at line 328.
+    Found 8-bit 4-to-1 multiplexer for signal <twiDi> created at line 173.
+    Found 22-bit comparator greater for signal <rstCnt[21]_PWR_13_o_LessThan_5_o> created at line 229
+    Summary:
+	inferred   1 RAM(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  71 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   7 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <CamCtl> synthesized.
+
+Synthesizing Unit <TWICtl>.
+    Related source file is "/afs/ir.stanford.edu/class/ee109/groups/6/jstk/pcores/camera_stream_v1_00_a/hdl/vhdl/digilent/TWICtl.vhd".
+        CLOCKFREQ = 24
+    Set property "fsm_encoding = gray" for signal <state>.
+WARNING:Xst:2935 - Signal 'ERRTYPE_O', unconnected in block 'TWICtl', is tied to its initial value (0).
+    Found 1-bit register for signal <ddSda>.
+    Found 1-bit register for signal <dScl>.
+    Found 2-bit register for signal <busState>.
+    Found 6-bit register for signal <busFreeCnt>.
+    Found 1-bit register for signal <int_Rst>.
+    Found 6-bit register for signal <sclCnt>.
+    Found 8-bit register for signal <dataByte>.
+    Found 3-bit register for signal <bitCount>.
+    Found 1-bit register for signal <addrNData>.
+    Found 8-bit register for signal <currAddr>.
+    Found 2-bit register for signal <subState>.
+    Found 4-bit register for signal <state>.
+    Found 1-bit register for signal <rSda>.
+    Found 1-bit register for signal <rScl>.
+    Found 1-bit register for signal <DONE_O>.
+    Found 1-bit register for signal <ERR_O>.
+    Found 1-bit register for signal <dSda>.
+INFO:Xst:1799 - State sterror is never reached in FSM <state>.
+INFO:Xst:1799 - State ststoperror is never reached in FSM <state>.
+    Found finite state machine <FSM_1> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 11                                             |
+    | Transitions        | 62                                             |
+    | Inputs             | 16                                             |
+    | Outputs            | 9                                              |
+    | Clock              | CLK (rising_edge)                              |
+    | Power Up State     | stidle                                         |
+    | Encoding           | gray                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 2-bit adder for signal <subState[1]_GND_17_o_add_36_OUT> created at line 304.
+    Found 6-bit subtractor for signal <GND_17_o_GND_17_o_sub_6_OUT<5:0>> created at line 190.
+    Found 6-bit subtractor for signal <GND_17_o_GND_17_o_sub_13_OUT<5:0>> created at line 230.
+    Found 3-bit subtractor for signal <GND_17_o_GND_17_o_sub_24_OUT<2:0>> created at line 268.
+    Found 8-bit comparator not equal for signal <n0127> created at line 513
+    Summary:
+	inferred   4 Adder/Subtractor(s).
+	inferred  44 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred  44 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <TWICtl> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 26x33-bit single-port RAM                             : 1
+# Adders/Subtractors                                   : 9
+ 10-bit adder                                          : 1
+ 15-bit subtractor                                     : 1
+ 2-bit adder                                           : 1
+ 20-bit adder                                          : 1
+ 22-bit adder                                          : 1
+ 3-bit subtractor                                      : 1
+ 5-bit adder                                           : 1
+ 6-bit subtractor                                      : 2
+# Registers                                            : 28
+ 1-bit register                                        : 14
+ 10-bit register                                       : 1
+ 15-bit register                                       : 1
+ 16-bit register                                       : 1
+ 2-bit register                                        : 2
+ 20-bit register                                       : 1
+ 22-bit register                                       : 1
+ 3-bit register                                        : 1
+ 5-bit register                                        : 1
+ 6-bit register                                        : 2
+ 8-bit register                                        : 3
+# Comparators                                          : 2
+ 22-bit comparator greater                             : 1
+ 8-bit comparator not equal                            : 1
+# Multiplexers                                         : 52
+ 1-bit 2-to-1 multiplexer                              : 47
+ 16-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 2
+ 8-bit 4-to-1 multiplexer                              : 1
+# FSMs                                                 : 2
+
+=========================================================================
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<20> and initFb<20> initFb<20> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<19> and initFb<19> initFb<19> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<18> and initFb<18> initFb<18> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<17> and initFb<17> initFb<17> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<16> and initFb<16> initFb<16> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<32> and initFb<32> initFb<32> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<31> and initFb<31> initFb<31> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<30> and initFb<30> initFb<30> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<29> and initFb<29> initFb<29> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<28> and initFb<28> initFb<28> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<27> and initFb<27> initFb<27> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<26> and initFb<26> initFb<26> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<25> and initFb<25> initFb<25> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<24> and initFb<24> initFb<24> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<23> and initFb<23> initFb<23> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<22> and initFb<22> initFb<22> signal will be lost.
+WARNING:Xst:638 - in unit CamCtl Conflict on KEEP property on signal _n0133<21> and initFb<21> initFb<21> signal will be lost.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <CamCtl>.
+The following registers are absorbed into counter <rstCnt>: 1 register on signal <rstCnt>.
+The following registers are absorbed into counter <waitCnt>: 1 register on signal <waitCnt>.
+The following registers are absorbed into counter <initA>: 1 register on signal <initA>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_CamInitRAM> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 26-word x 33-bit                    |          |
+    |     clkA           | connected to signal <CLK>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <initA>         |          |
+    |     diA            | connected to signal <(_n0133<32:16>,initFb)> |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:2774 - HDL ADVISOR - KEEP property attached to signal _n0133 may hinder XST clustering optimizations.
+Unit <CamCtl> synthesized (advanced).
+
+Synthesizing (advanced) Unit <TWICtl>.
+The following registers are absorbed into counter <subState>: 1 register on signal <subState>.
+The following registers are absorbed into counter <bitCount>: 1 register on signal <bitCount>.
+The following registers are absorbed into counter <busFreeCnt>: 1 register on signal <busFreeCnt>.
+The following registers are absorbed into counter <sclCnt>: 1 register on signal <sclCnt>.
+Unit <TWICtl> synthesized (advanced).
+
+Synthesizing (advanced) Unit <camera_stream>.
+The following registers are absorbed into counter <pixel>: 1 register on signal <pixel>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+Unit <camera_stream> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 26x33-bit single-port distributed RAM                 : 1
+# Counters                                             : 9
+ 10-bit up counter                                     : 1
+ 15-bit down counter                                   : 1
+ 2-bit up counter                                      : 1
+ 20-bit up counter                                     : 1
+ 22-bit up counter                                     : 1
+ 3-bit down counter                                    : 1
+ 5-bit up counter                                      : 1
+ 6-bit down counter                                    : 2
+# Registers                                            : 56
+ Flip-Flops                                            : 56
+# Comparators                                          : 2
+ 22-bit comparator greater                             : 1
+ 8-bit comparator not equal                            : 1
+# Multiplexers                                         : 58
+ 1-bit 2-to-1 multiplexer                              : 54
+ 16-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 1
+ 8-bit 4-to-1 multiplexer                              : 1
+# FSMs                                                 : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <currAddr_3> in Unit <TWICtl> is equivalent to the following 3 FFs/Latches, which will be removed : <currAddr_4> <currAddr_5> <currAddr_6> 
+INFO:Xst:2261 - The FF/Latch <currAddr_1> in Unit <TWICtl> is equivalent to the following 2 FFs/Latches, which will be removed : <currAddr_2> <currAddr_7> 
+WARNING:Xst:1710 - FF/Latch <currAddr_1> (without init value) has a constant value of 0 in block <TWICtl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <currAddr_3> (without init value) has a constant value of 1 in block <TWICtl>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <camera_stream_0/camctl/FSM_0> on signal <state[1:3]> with user encoding.
+------------------------
+ State      | Encoding
+------------------------
+ stregaddr1 | 000
+ stregaddr2 | 001
+ stdata1    | 010
+ stdata2    | 011
+ sterror    | 100
+ stdone     | 101
+ stidle     | 110
+ stdelay    | 111
+------------------------
+Optimizing FSM <camera_stream_0/camctl/Inst_TWICtl/FSM_1> on signal <state[1:4]> with gray encoding.
+--------------------------
+ State        | Encoding
+--------------------------
+ stidle       | 0000
+ ststart      | 0001
+ stread       | 1100
+ stwrite      | 0011
+ sterror      | unreached
+ ststop       | 0100
+ stsack       | 0101
+ stmack       | 0110
+ stmnackstop  | 0010
+ stmnackstart | 0111
+ ststoperror  | unreached
+--------------------------
+
+Optimizing unit <camera_stream_0_wrapper> ...
+
+Optimizing unit <camera_stream> ...
+
+Optimizing unit <CamCtl> ...
+
+Optimizing unit <TWICtl> ...
+WARNING:Xst:1710 - FF/Latch <camera_stream_0/pixel_19> (without init value) has a constant value of 0 in block <camera_stream_0_wrapper>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block camera_stream_0_wrapper, actual ratio is 1.
+FlipFlop camera_stream_0/camctl/Inst_TWICtl/state_FSM_FFd2 has been replicated 1 time(s)
+FlipFlop camera_stream_0/camctl/Inst_TWICtl/state_FSM_FFd3 has been replicated 1 time(s)
+FlipFlop camera_stream_0/camctl/Inst_TWICtl/state_FSM_FFd4 has been replicated 1 time(s)
+FlipFlop camera_stream_0/camctl/initA_0 has been replicated 1 time(s)
+FlipFlop camera_stream_0/camctl/initA_1 has been replicated 1 time(s)
+FlipFlop camera_stream_0/camctl/initA_2 has been replicated 1 time(s)
+FlipFlop camera_stream_0/camctl/initA_3 has been replicated 1 time(s)
+FlipFlop camera_stream_0/camctl/initA_4 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 152
+ Flip-Flops                                            : 152
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : camera_stream_0_wrapper.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 427
+#      GND                         : 1
+#      INV                         : 26
+#      LUT1                        : 50
+#      LUT2                        : 25
+#      LUT3                        : 73
+#      LUT4                        : 12
+#      LUT5                        : 31
+#      LUT6                        : 70
+#      MUXCY                       : 67
+#      MUXF7                       : 5
+#      VCC                         : 1
+#      XORCY                       : 66
+# FlipFlops/Latches                : 153
+#      FD                          : 16
+#      FDC                         : 1
+#      FDE                         : 35
+#      FDR                         : 26
+#      FDRE                        : 53
+#      FDS                         : 11
+#      FDSE                        : 10
+#      ODDR2                       : 1
+# RAMS                             : 33
+#      RAM32X1S                    : 33
+# Clock Buffers                    : 1
+#      BUFG                        : 1
+# Others                           : 1
+#      camera_fifo                 : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx45csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             153  out of  54576     0%  
+ Number of Slice LUTs:                  320  out of  27288     1%  
+    Number used as Logic:               287  out of  27288     1%  
+    Number used as Memory:               33  out of   6408     0%  
+       Number used as RAM:               33
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    341
+   Number with an unused Flip Flop:     188  out of    341    55%  
+   Number with an unused LUT:            21  out of    341     6%  
+   Number of fully used LUT-FF pairs:   132  out of    341    38%  
+   Number of unique control sets:        25
+
+IO Utilization: 
+ Number of IOs:                         104
+ Number of bonded IOBs:                   0  out of    218     0%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+-----------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                               | Load  |
+-----------------------------------+-----------------------------------------------------+-------+
+PCLK_I                             | BUFG                                                | 37    |
+ACLK                               | NONE(camera_stream_0/count_9)                       | 10    |
+CLK                                | NONE(camera_stream_0/camctl/Inst_ODDR2_MCLK_FORWARD)| 139   |
+CLK_180                            | NONE(camera_stream_0/camctl/Inst_ODDR2_MCLK_FORWARD)| 1     |
+-----------------------------------+-----------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 4.583ns (Maximum Frequency: 218.219MHz)
+   Minimum input arrival time before clock: 2.102ns
+   Maximum output required time after clock: 4.155ns
+   Maximum combinational path delay: 1.780ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'PCLK_I'
+  Clock period: 4.145ns (frequency: 241.249MHz)
+  Total number of paths / destination ports: 604 / 75
+-------------------------------------------------------------------------
+Delay:               4.145ns (Levels of Logic = 2)
+  Source:            camera_stream_0/pixel_9 (FF)
+  Destination:       camera_stream_0/pixel_18 (FF)
+  Source Clock:      PCLK_I rising
+  Destination Clock: PCLK_I rising
+
+  Data Path: camera_stream_0/pixel_9 to camera_stream_0/pixel_18
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             2   0.447   0.981  camera_stream_0/pixel_9 (camera_stream_0/pixel_9)
+     LUT6:I0->O            1   0.203   0.808  camera_stream_0/RST_I_pixel[19]_OR_60_o3 (camera_stream_0/RST_I_pixel[19]_OR_60_o3)
+     LUT5:I2->O           19   0.205   1.071  camera_stream_0/RST_I_pixel[19]_OR_60_o4 (camera_stream_0/RST_I_pixel[19]_OR_60_o)
+     FDRE:R                    0.430          camera_stream_0/pixel_0
+    ----------------------------------------
+    Total                      4.145ns (1.285ns logic, 2.860ns route)
+                                       (31.0% logic, 69.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'ACLK'
+  Clock period: 1.909ns (frequency: 523.766MHz)
+  Total number of paths / destination ports: 55 / 10
+-------------------------------------------------------------------------
+Delay:               1.909ns (Levels of Logic = 11)
+  Source:            camera_stream_0/count_0 (FF)
+  Destination:       camera_stream_0/count_9 (FF)
+  Source Clock:      ACLK rising
+  Destination Clock: ACLK rising
+
+  Data Path: camera_stream_0/count_0 to camera_stream_0/count_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             3   0.447   0.650  camera_stream_0/count_0 (camera_stream_0/count_0)
+     INV:I->O              1   0.206   0.000  camera_stream_0/Mcount_count_lut<0>_INV_0 (camera_stream_0/Mcount_count_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  camera_stream_0/Mcount_count_cy<0> (camera_stream_0/Mcount_count_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  camera_stream_0/Mcount_count_cy<1> (camera_stream_0/Mcount_count_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  camera_stream_0/Mcount_count_cy<2> (camera_stream_0/Mcount_count_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  camera_stream_0/Mcount_count_cy<3> (camera_stream_0/Mcount_count_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  camera_stream_0/Mcount_count_cy<4> (camera_stream_0/Mcount_count_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  camera_stream_0/Mcount_count_cy<5> (camera_stream_0/Mcount_count_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  camera_stream_0/Mcount_count_cy<6> (camera_stream_0/Mcount_count_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  camera_stream_0/Mcount_count_cy<7> (camera_stream_0/Mcount_count_cy<7>)
+     MUXCY:CI->O           0   0.019   0.000  camera_stream_0/Mcount_count_cy<8> (camera_stream_0/Mcount_count_cy<8>)
+     XORCY:CI->O           1   0.180   0.000  camera_stream_0/Mcount_count_xor<9> (camera_stream_0/Result<9>)
+     FDRE:D                    0.102          camera_stream_0/count_9
+    ----------------------------------------
+    Total                      1.909ns (1.259ns logic, 0.650ns route)
+                                       (65.9% logic, 34.1% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK'
+  Clock period: 4.583ns (frequency: 218.219MHz)
+  Total number of paths / destination ports: 3624 / 433
+-------------------------------------------------------------------------
+Delay:               4.583ns (Levels of Logic = 3)
+  Source:            camera_stream_0/camctl/Inst_TWICtl/sclCnt_4 (FF)
+  Destination:       camera_stream_0/camctl/Inst_TWICtl/dataByte_7 (FF)
+  Source Clock:      CLK rising
+  Destination Clock: CLK rising
+
+  Data Path: camera_stream_0/camctl/Inst_TWICtl/sclCnt_4 to camera_stream_0/camctl/Inst_TWICtl/dataByte_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               5   0.447   1.059  camera_stream_0/camctl/Inst_TWICtl/sclCnt_4 (camera_stream_0/camctl/Inst_TWICtl/sclCnt_4)
+     LUT6:I1->O           19   0.203   1.416  camera_stream_0/camctl/Inst_TWICtl/GND_17_o_sclCnt[5]_equal_63_o<5>1 (camera_stream_0/camctl/Inst_TWICtl/GND_17_o_sclCnt[5]_equal_63_o)
+     LUT5:I0->O            1   0.203   0.000  camera_stream_0/camctl/Inst_TWICtl/_n0251_inv1_F (N61)
+     MUXF7:I0->O           8   0.131   0.802  camera_stream_0/camctl/Inst_TWICtl/_n0251_inv1 (camera_stream_0/camctl/Inst_TWICtl/_n0251_inv)
+     FDE:CE                    0.322          camera_stream_0/camctl/Inst_TWICtl/dataByte_0
+    ----------------------------------------
+    Total                      4.583ns (1.306ns logic, 3.277ns route)
+                                       (28.5% logic, 71.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'PCLK_I'
+  Total number of paths / destination ports: 36 / 36
+-------------------------------------------------------------------------
+Offset:              2.049ns (Levels of Logic = 1)
+  Source:            RST_I (PAD)
+  Destination:       camera_stream_0/pixel_18 (FF)
+  Destination Clock: PCLK_I rising
+
+  Data Path: RST_I to camera_stream_0/pixel_18
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LUT5:I0->O           19   0.203   1.071  camera_stream_0/RST_I_pixel[19]_OR_60_o4 (camera_stream_0/RST_I_pixel[19]_OR_60_o)
+     FDRE:R                    0.430          camera_stream_0/pixel_0
+    ----------------------------------------
+    Total                      2.049ns (0.978ns logic, 1.071ns route)
+                                       (47.7% logic, 52.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'ACLK'
+  Total number of paths / destination ports: 30 / 20
+-------------------------------------------------------------------------
+Offset:              2.102ns (Levels of Logic = 1)
+  Source:            camera_stream_0/fifo:empty (PAD)
+  Destination:       camera_stream_0/count_9 (FF)
+  Destination Clock: ACLK rising
+
+  Data Path: camera_stream_0/fifo:empty to camera_stream_0/count_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    camera_fifo:empty      2   0.000   0.721  camera_stream_0/fifo (camera_stream_0/fifo_dout_empty)
+     LUT2:I0->O           10   0.203   0.856  camera_stream_0/fifo_inc1 (camera_stream_0/fifo_inc)
+     FDRE:CE                   0.322          camera_stream_0/count_0
+    ----------------------------------------
+    Total                      2.102ns (0.525ns logic, 1.577ns route)
+                                       (25.0% logic, 75.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
+  Total number of paths / destination ports: 27 / 27
+-------------------------------------------------------------------------
+Offset:              0.670ns (Levels of Logic = 1)
+  Source:            RST_I (PAD)
+  Destination:       camera_stream_0/camctl/intRst (FF)
+  Destination Clock: CLK rising
+
+  Data Path: RST_I to camera_stream_0/camctl/intRst
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LUT6:I0->O            1   0.203   0.000  camera_stream_0/camctl/VDDEN_O_rstpot (camera_stream_0/camctl/VDDEN_O_rstpot)
+     FD:D                      0.102          camera_stream_0/camctl/VDDEN_O
+    ----------------------------------------
+    Total                      0.670ns (0.670ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ACLK'
+  Total number of paths / destination ports: 330 / 33
+-------------------------------------------------------------------------
+Offset:              4.155ns (Levels of Logic = 3)
+  Source:            camera_stream_0/count_3 (FF)
+  Destination:       M_AXIS_TDATA<19> (PAD)
+  Source Clock:      ACLK rising
+
+  Data Path: camera_stream_0/count_3 to M_AXIS_TDATA<19>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             3   0.447   0.995  camera_stream_0/count_3 (camera_stream_0/count_3)
+     LUT5:I0->O            1   0.203   0.580  camera_stream_0/GND_6_o_GND_6_o_equal_7_o<9>_SW0 (N2)
+     LUT6:I5->O           32   0.205   1.520  camera_stream_0/GND_6_o_GND_6_o_equal_7_o<9> (camera_stream_0/GND_6_o_GND_6_o_equal_7_o)
+     LUT3:I0->O            0   0.205   0.000  camera_stream_0/Mmux_M_AXIS_TDATA110 (M_AXIS_TDATA<0>)
+    ----------------------------------------
+    Total                      4.155ns (1.060ns logic, 3.095ns route)
+                                       (25.5% logic, 74.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
+  Total number of paths / destination ports: 14 / 9
+-------------------------------------------------------------------------
+Offset:              2.034ns (Levels of Logic = 1)
+  Source:            camera_stream_0/camctl/state_FSM_FFd2 (FF)
+  Destination:       DEBUG<2> (PAD)
+  Source Clock:      CLK rising
+
+  Data Path: camera_stream_0/camctl/state_FSM_FFd2 to DEBUG<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS:C->Q             23   0.447   1.382  camera_stream_0/camctl/state_FSM_FFd2 (camera_stream_0/camctl/state_FSM_FFd2)
+     LUT3:I0->O            0   0.205   0.000  camera_stream_0/camctl/state_DEBUG<1>1 (DEBUG<1>)
+    ----------------------------------------
+    Total                      2.034ns (0.652ns logic, 1.382ns route)
+                                       (32.0% logic, 68.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'PCLK_I'
+  Total number of paths / destination ports: 36 / 36
+-------------------------------------------------------------------------
+Offset:              1.518ns (Levels of Logic = 0)
+  Source:            camera_stream_0/camctl/DV_O (FF)
+  Destination:       camera_stream_0/fifo:wr_en (PAD)
+  Source Clock:      PCLK_I rising
+
+  Data Path: camera_stream_0/camctl/DV_O to camera_stream_0/fifo:wr_en
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             19   0.447   1.071  camera_stream_0/camctl/DV_O (camera_stream_0/camctl/DV_O)
+    camera_fifo:wr_en          0.000          camera_stream_0/fifo
+    ----------------------------------------
+    Total                      1.518ns (0.447ns logic, 1.071ns route)
+                                       (29.4% logic, 70.6% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 57 / 36
+-------------------------------------------------------------------------
+Delay:               1.780ns (Levels of Logic = 1)
+  Source:            camera_stream_0/fifo:empty (PAD)
+  Destination:       camera_stream_0/fifo:rd_en (PAD)
+
+  Data Path: camera_stream_0/fifo:empty to camera_stream_0/fifo:rd_en
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    camera_fifo:empty      2   0.000   0.721  camera_stream_0/fifo (camera_stream_0/fifo_dout_empty)
+     LUT2:I0->O           10   0.203   0.856  camera_stream_0/fifo_inc1 (camera_stream_0/fifo_inc)
+    camera_fifo:rd_en          0.000          camera_stream_0/fifo
+    ----------------------------------------
+    Total                      1.780ns (0.203ns logic, 1.577ns route)
+                                       (11.4% logic, 88.6% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock ACLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+ACLK           |    1.909|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |    4.583|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock PCLK_I
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |    2.858|         |         |         |
+PCLK_I         |    4.145|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 8.94 secs
+ 
+--> 
+
+
+Total memory usage is 136436 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   28 (   0 filtered)
+Number of infos    :   11 (   0 filtered)
+

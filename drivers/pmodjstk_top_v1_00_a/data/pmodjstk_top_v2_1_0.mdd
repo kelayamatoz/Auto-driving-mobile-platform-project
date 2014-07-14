@@ -1,0 +1,15 @@
+##############################################################################
+## Filename:          /afs/ir.stanford.edu/class/ee109/groups/6/jstk/drivers/pmodjstk_top_v1_00_a/data/pmodjstk_top_v2_1_0.mdd
+## Description:       Microprocessor Driver Definition
+## Date:              Fri May 24 16:57:55 2013 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+OPTION psf_version = 2.1.0;
+
+BEGIN DRIVER pmodjstk_top
+
+  OPTION supported_peripherals = (pmodjstk_top);
+  OPTION depends = (common_v1_00_a);
+  OPTION copyfiles = all;
+
+END DRIVER
