@@ -1,3 +1,9 @@
-The software implementation can be found in folder SDK.
+Filesystem: 
 
-The hardware implementation is spreaded over the file system. 
+Hardware Drivers in HDL are stored in pcores and hdl. 
+
+Software Implementations are in SDK. 
+
+More detailed descriptions can be found in presentation.pdf and EE109_FINAL_PROJECT_REPORT.pdf. 
+
+
